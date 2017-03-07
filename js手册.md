@@ -2,7 +2,7 @@
 > Writen By CoolGhost,Started With 2016/10
 
 * 访问JS属性的两种方式
-`person.lastName`   `person["lastName"]`
+ `person.lastName`   `person["lastName"]`
 * 如果把值赋给尚未声明的变量，该变量将被自动作为全局变量声明
 	* 此处可使用 window.carName
 		```javascript
