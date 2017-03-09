@@ -12,10 +12,10 @@
 	* s代表秒，如ss
 	* S代表毫秒，如SSS
 	* 常用的方法如下
-	```java
-	SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss");//2017-02-08 09:26:54
-	SimpleDateFormat sdf = new SimpleDateFormat("yyyy-M-d H:m:s");//2017-2-8 9:25:45
-	```
+		```java
+		SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss");//2017-02-08 09:26:54
+		SimpleDateFormat sdf = new SimpleDateFormat("yyyy-M-d H:m:s");//2017-2-8 9:25:45
+		```
 * java8日期新特性
 	* LocalDate
 		```java
@@ -38,14 +38,20 @@
 		```
 	* LocalTime
 		```java
-		LocalTime zero = LocalTime.of(0, 0, 0); // 00:00:00
-		LocalTime mid = LocalTime.parse("12:00:00"); // 12:00:00
-		LocalTime now = LocalTime.now().withNano(0)); // 11:09:09
-		LocalTime now = LocalTime.now(); // 11:09:09.240
+		//日期转换
+        LocalTime now = LocalTime.of(0, 0, 0); // 00:00:00
+        LocalDate today = LocalDate.now(); // -> 2014-12-24
+        LocalDateTime dateTime1 = now.atDate(LocalDate.now());
+        LocalDateTime dateTime2 = today.atTime(now);
+        LocalDate localDate = dateTime2.toLocalDate();
+        LocalTime localTime = dateTime1.toLocalTime();
 		```
 	* LocalDateTime
 		```java
-		
+        LocalTime now = LocalTime.of(0, 0, 0); // 00:00:00
+        LocalDate today = LocalDate.now(); // -> 2014-12-24
+        LocalDateTime dateTime1 = now.atDate(LocalDate.now());
+        LocalDateTime dateTime2 = today.atTime(now);
 		```
 	* Instant
 	* ZonedDateTime
@@ -63,8 +69,22 @@
 		    ex.printStackTrace();
 		}
 		```
+	* 日期转换
+		```java
+		//Date转LocalDateTime
+		Instant instant = Instant.ofEpochMilli((new Date()).getTime());
+		LocalDateTime res = LocalDateTime.ofInstant(instant, ZoneId.systemDefault());
+		//LocalDateTime转Date
+	    Instant instant = LocalDateTime.now().atZone(ZoneId.systemDefault()).toInstant();
+	    Date res = Date.from(instant);
+		```
 	* 参考URL
-	* http://www.cnblogs.com/comeboo/p/5378922.html
+		* http://www.cnblogs.com/comeboo/p/5378922.html
+		* http://blog.csdn.net/sf_cyl/article/details/51987088
+		* http://www.cnblogs.com/feika/p/4448573.html
+	* 支持
+		* 6.0.5 版本的mysql
+		* 3.4.2 版本的mybatis已经支持LocalDateTime 转换成数据库的DateTime
 * javaWeb项目获得当前目录 `getClass().getResource("").getFile().toString();`
 * javaWeb项目获得项目根目录 `getClass().getResource("/").getFile().toString();`
 * 
