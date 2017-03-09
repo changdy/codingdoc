@@ -21,7 +21,7 @@
 * package
 打包，默认打包成jar
 * clean
-清楚 编译后产生的target之类
+清除编译后产生的target之类
 * install
 可以理解为安装吧，最后会把当前项目装进本地仓库。（这样其他项目就可以使用）
 * [http://www.cnblogs.com/adolfmc/archive/2012/07/31/2616908.html](http://www.cnblogs.com/adolfmc/archive/2012/07/31/2616908.html "maven命令")
