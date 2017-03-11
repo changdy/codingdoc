@@ -52,6 +52,9 @@
         LocalDate today = LocalDate.now(); // -> 2014-12-24
         LocalDateTime dateTime1 = now.atDate(LocalDate.now());
         LocalDateTime dateTime2 = today.atTime(now);
+		LocalDateTime.LocalDateTime("2007-12-03T10:15:30")
+		//默认的是ISO_LOCAL_DATE_TIME，因此还需要自己定义DateTimeFormatter
+		DateTimeFormatter.ofPattern("yyyy-MM-dd HH:mm");
 		```
 	* Instant
 	* ZonedDateTime
@@ -84,7 +87,7 @@
 		* http://www.cnblogs.com/feika/p/4448573.html
 	* 支持
 		* 6.0.5 版本的mysql
-		* 3.4.2 版本的mybatis已经支持LocalDateTime 转换成数据库的DateTime
+		* 3.4.2 版本的mybatis已经支持LocalDateTime 转换成数据库的DateTime(仍然需要额外的包)
 * javaWeb项目获得当前目录 `getClass().getResource("").getFile().toString();`
 * javaWeb项目获得项目根目录 `getClass().getResource("/").getFile().toString();`
 * 
