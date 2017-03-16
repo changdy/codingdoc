@@ -52,7 +52,7 @@
         LocalDate today = LocalDate.now(); // -> 2014-12-24
         LocalDateTime dateTime1 = now.atDate(LocalDate.now());
         LocalDateTime dateTime2 = today.atTime(now);
-		LocalDateTime.LocalDateTime("2007-12-03T10:15:30")
+		LocalDateTime.parse("2007-12-03T10:15:30")
 		//默认的是ISO_LOCAL_DATE_TIME，因此还需要自己定义DateTimeFormatter
 		DateTimeFormatter.ofPattern("yyyy-MM-dd HH:mm");
 		```
