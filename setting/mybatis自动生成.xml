@@ -14,7 +14,7 @@
  -->
 
  <!-- 在MBG工作的时候，需要额外加载的依赖包
-     location属性指明加载jar/zip包的全路径
+     location属性指明加载jar/zip包的全路径 貌似不支持最新版的
 <classPathEntry location="/Program Files/IBM/SQLLIB/java/db2java.zip" />
   -->
 
@@ -281,4 +281,3 @@
 </context>
 
 </generatorConfiguration>
-好了，就到这里了，可以作为一个工具文档查看。
