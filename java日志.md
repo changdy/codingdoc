@@ -90,4 +90,7 @@
 		* 3.4.2 版本的mybatis已经支持LocalDateTime 转换成数据库的DateTime(仍然需要额外的包)
 * javaWeb项目获得当前目录 `getClass().getResource("").getFile().toString();`
 * javaWeb项目获得项目根目录 `getClass().getResource("/").getFile().toString();`
-* 
+* java8支持以`forEach`遍历
+	```java
+	map.forEach((key, value) -> System.out.println(key + " : " + value))
+	```

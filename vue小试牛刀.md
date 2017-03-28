@@ -19,41 +19,41 @@
 	            props: ['data','typeInfo','date'],
 	            template: '#myComponent'
 	        });
-	        vm = new Vue({
-	            el: '#unbundling_grid',
-	            data: {
-	                rowList:[]
-	            },
-	            computed: {
-	                dateTimeArr: function () {
-	                    var arr = new Array();
-	                    for (var i = 0; i < this.rowList.length; i++) {
-	                        if(this.rowList[i].unbundlingDate){
-	                            arr.push('test');//伪代码
-	                        }else{
-	                            arr.push('');
-	                        }
-	                    }
-	                    return arr;
-	                },
-	                typeInfoArr:function () {
-	                    var arr = new Array();
-	                    for (var i = 0; i < this.rowList.length; i++) {
-	                        if(this.rowList[i].type){
-	                            var type = this.rowList[i].type;
-	                            if( type == 0){
-	                                arr.push('默认');
-	                            }else if(type == 1 ){
-	                                arr.push('同意');
-	                            }
-	                        }else{
-	                            arr.push('');
-	                        }
-	                    }
-	                    return arr;
-	                }
-	            }
-	        });
+    vm = new Vue({
+        el: '#unbundling_grid',
+        data: {
+            rowList:[]
+        },
+        computed: {
+            dateTimeArr: function () {
+                var arr = new Array();
+                for (var i = 0; i < this.rowList.length; i++) {
+                    if(this.rowList[i].unbundlingDate){
+                        arr.push('test');//伪代码
+                    }else{
+                        arr.push('');
+                    }
+                }
+                return arr;
+            },
+            typeInfoArr:function () {
+                var arr = new Array();
+                for (var i = 0; i < this.rowList.length; i++) {
+                    if(this.rowList[i].type){
+                        var type = this.rowList[i].type;
+                        if( type == 0){
+                            arr.push('默认');
+                        }else if(type == 1 ){
+                            arr.push('同意');
+                        }
+                    }else{
+                        arr.push('');
+                    }
+                }
+                return arr;
+            }
+        }
+    });
 	```
 * Vue 不能检测以下变动的数组
 	* 当你利用索引直接设置一个项时，例如： `vm.items[indexOfItem] = newValue`
