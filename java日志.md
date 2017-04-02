@@ -94,3 +94,9 @@
 	```java
 	map.forEach((key, value) -> System.out.println(key + " : " + value))
 	```
+* java8 Stream
+	```java
+	Stream.of(List<Integer>...);//得到的是Stream<List<Integer>>
+	List<Integer>.stream();//得到的是Stream<Integer>
+	//Stream<List<Integer>>需要进行 .flatMap(Collection::stream)操作才能得到Stream<Integer>
+	```
