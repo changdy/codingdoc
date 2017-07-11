@@ -204,3 +204,17 @@ css样式应该放在head中，而引入的js应该放入到body的最下方
 	* parents一直往上找
 	* closest从当前元素开始找
 	* parentsUntil 从父元素开始找，找到之后得到其子节点
+* jQuery on和trigger方法
+   trigger可以用来触发某些js事件,这些事件可以是原生的,也是可以用自定义的某些事件:
+   ```js
+     $("p").on("custom.someNamespace1", function (event) {
+         console.log(event);//event.type=custom,event.namespace=someNamespace1
+     });
+     $("p").click(function (event) {
+         $(this).trigger("custom.someNamespace1");
+     });
+     $("button").click(function(){
+       $("p").off("custom.someNamespace");//让节点不在监听"custom.someNamespace"事件
+     });
+   ```
+   因此有时候可以借助trigger来进行消息的传递
