@@ -218,3 +218,5 @@ css样式应该放在head中，而引入的js应该放入到body的最下方
      });
    ```
    因此有时候可以借助trigger来进行消息的传递
+* $.prop()可以修改属性
+$('#my-test').prop('disabled',true);
