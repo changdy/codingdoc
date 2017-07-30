@@ -100,3 +100,6 @@
 	List<Integer>.stream();//得到的是Stream<Integer>
 	//Stream<List<Integer>>需要进行 .flatMap(Collection::stream)操作才能得到Stream<Integer>
 	```
+* jar 运行
+java -cp spider.jar com.smzdm.main.MainClass
+java -jar test.jar

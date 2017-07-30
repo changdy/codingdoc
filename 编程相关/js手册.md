@@ -2,7 +2,7 @@
 > Writen By CoolGhost,Started With 2016/10
 
 * 访问JS属性的两种方式
-	`person.lastName`   `person["lastName"]`
+	`person.lastName`   `person["lastName"]` 不推荐被使用
 * 如果把值赋给尚未声明的变量，该变量将被自动作为全局变量声明
 	* 此处可使用 window.carName
 		```javascript
@@ -220,3 +220,13 @@ css样式应该放在head中，而引入的js应该放入到body的最下方
    因此有时候可以借助trigger来进行消息的传递
 * $.prop()可以修改属性
 $('#my-test').prop('disabled',true);
+* checkbox的选中状态只能通过$("#test1").prop("checked")来判定
+
+
+## js规范阅读
+* parseInt应该指定进制
+parseInt(inputValue, 10);
+* 变量提升
+变量声明会提升至作用域顶部，但赋值不会。
+* 数组的行末的','非必须,避免使用
+* 判断数组是否非空直接使用if(arr.length)
