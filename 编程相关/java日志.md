@@ -103,3 +103,4 @@
 * jar 运行
 java -cp spider.jar com.smzdm.main.MainClass
 java -jar test.jar
+Main-Class: com.smzdm.main.MainClass
