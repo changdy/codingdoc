@@ -61,3 +61,5 @@
  * 调用管理界面还需要去掉外网配置
 * 改为中国时区,只需要在catalina.sh中第一行加入
 `JAVA_OPTS="$JAVA_OPTS -Dfile.encoding=UTF8  -Duser.timezone=GMT+08"`
+* ./apache-tomcat-8.5.15/bin/shutdown.sh
+* ./apache-tomcat-8.5.15/bin/startup.sh
