@@ -221,8 +221,12 @@ css样式应该放在head中，而引入的js应该放入到body的最下方
 * $.prop()可以修改属性
 $('#my-test').prop('disabled',true);
 * checkbox的选中状态只能通过$("#test1").prop("checked")来判定
-
-
+* bind,call,apply 区别
+	三者都可以用来改变this的指向,不同的是 call和apply会立刻调用函数,而bind会返回一个新的函数(估计vue是用这种方法来实现的),call和apply主要体现在传参上;另外需要注意这三个对箭头函数均无效!
+	```javascript
+	func.call(this, arg1, arg2); //正常传参即可
+	func.apply(this, [arg1, arg2]) //需要将被传入的参数,封装成数组对象 tips:可以用arguments对象实现类似转发效果
+	```
 ## js规范阅读
 * parseInt应该指定进制
 parseInt(inputValue, 10);
@@ -230,3 +234,35 @@ parseInt(inputValue, 10);
 变量声明会提升至作用域顶部，但赋值不会。
 * 数组的行末的','非必须,避免使用
 * 判断数组是否非空直接使用if(arr.length)
+
+## 廖雪峰js学习
+* 数组操作
+  * indexOf 
+    类似于 str的substring,获取元素位置
+  * slice 
+    类似于 str的substring(都是新的数组,字符串),包含开始节点,没有结束节点,可以用于返回新的数组;
+  * push和pop
+    push是箱尾部增加元素,pop是删除最后面的元素
+  * unshift和shift
+    unshift 头部添加,shift头部删除
+  * reverse
+    数组反序(改变原数组)
+  * concat
+    ['A', 'B', 'C'].concat([1, 2, 3]),用于数组连接,不改变原数组
+  * join
+    所有元素用字符拼接,上古时期str的自加比较慢
+  * sort
+    排序方法 ['1','2','22','33'].sort((x,y)=>parseInt(x,10)>parseInt(y,10)),默认情况下sort方法是比较转换成字符串之后的大小
+* object
+  * hasOwnProperty 与 in的区别
+    都可以判断是否包含某属性,区别是 in判断的属性可以是继承来的,而hasOwnProperty只能是自己本身的
+    ```javascript
+    var xiaoming = {
+    	name: '小明'
+    };
+    xiaoming.hasOwnProperty('toString'); // false
+    'toString' in xiaoming ; // true
+    ```
+* ​杂项
+	* foreach
+	可以用来遍历arr,map和set,ES5.1原生支持
