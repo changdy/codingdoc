@@ -104,3 +104,15 @@
 java -cp spider.jar com.smzdm.main.MainClass
 java -jar test.jar
 Main-Class: com.smzdm.main.MainClass
+* jdk 7 文件流
+	```java
+	//读取全部
+	byte[] data    = Files.readAllBytes(Paths.get("/home/biezhi/a.txt"));// 默认utf-8
+	String content = new String(data);
+	//按行读取
+	List<String> lines = Files.readAllLines(Paths.get("/home/biezhi/a.txt"));
+	//写入文件
+	Files.write(Paths.get("/home/biezhi/b.txt"), "Hello JDK7!".getBytes());
+	//尾部添加
+	Files.write(Paths.get("/home/biezhi/b.txt"), "Hello JDK7!".getBytes(), StandardOpenOption.APPEND);
+	```
