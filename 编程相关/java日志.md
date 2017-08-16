@@ -116,3 +116,7 @@ Main-Class: com.smzdm.main.MainClass
 	//尾部添加
 	Files.write(Paths.get("/home/biezhi/b.txt"), "Hello JDK7!".getBytes(), StandardOpenOption.APPEND);
 	```
+* java ee
+	* jsp内置对象: request、respons、pageContext、Session、application、out(输出)、Config、page、Exception
+	* jsp动作：jsp:include,jsp:useBean:jsp:setProperty,jsp:getProperty:jsp:forward,jsp:plugin
+	* Servlet生命周期:web容器初始化时,调用init()方法;运行时调用Service方法去处理请求;关闭web容器前调用destroy()方法
