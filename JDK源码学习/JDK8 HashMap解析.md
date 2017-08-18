@@ -1,0 +1,111 @@
+# JDK8 HashMap解析
+
+> 参考https://zhuanlan.zhihu.com/p/21673805 https://zhuanlan.zhihu.com/p/27325430
+
+## HashMap特点
+
+它根据键的hashCode值存储数据，大多数情况下可以直接定位到它的值，因而具有很快的访问速度，但遍历顺序却是不确定的。 HashMap最多只允许一条记录的键为null，允许多条记录的值为null。HashMap非线程安全，即任一时刻可以有多个线程同时写HashMap，可能会导致数据的不一致。如果需要满足线程安全，可以用 Collections的synchronizedMap方法使HashMap具有线程安全的能力，或者使用ConcurrentHashMap。
+
+## HashMap内部存储结构
+
+结构实现来讲，HashMap是数组+链表+{红黑树(JDK1.8)或LinkedList(jdk1.7)}实现
+
+其中的数组是Node[] table,Node为一个内部类有一个,内部类中有个 `Node<K,V> next`,为下个节点的地址
+
+得到数组中下标的方式如下
+
+```java
+//步骤1 如果步骤1中得到的hash一样,则说明发生了hash碰撞
+static final int hash(Object key) {   //jdk1.8 & jdk1.7
+     int h;
+     // h = key.hashCode() 为第一步 取hashCode值
+     // h ^ (h >>> 16)  为第二步 高位参与运算
+     return (key == null) ? 0 : (h = key.hashCode()) ^ (h >>> 16);
+}
+//步骤2 jdk1.7的源码，jdk1.8没有这个方法，但存在该代码块
+static int indexFor(int hash, int length) {
+     return hash & (length-1);  //第三步 hash对length取模
+}
+// 步骤:取key的hashCode值、高位运算、取模运算。
+```
+
+![HashMap结构](../pic/HashMap_structure.png)
+
+## HashMap put方法
+
+![HashMap结构](../pic/HashMap_put.png)
+
+```java
+final V putVal(int hash, K key, V value, boolean onlyIfAbsent, boolean evict) {
+    Node<K, V>[] tab;
+    Node<K, V> p;
+    int n, i;
+    // 步骤①：tab为空则创建
+    if ((tab = table) == null || (n = tab.length) == 0)
+        n = (tab = resize()).length;
+    // 步骤②：计算index，并对null做处理 
+    if ((p = tab[i = (n - 1) & hash]) == null)
+        tab[i] = newNode(hash, key, value, null);
+    else {
+        Node<K, V> e;K k;
+        // 步骤③：节点key存在，直接覆盖value
+        if (p.hash == hash && ((k = p.key) == key || (key != null && key.equals(k))))
+            e = p;
+        // 步骤④：判断该链为红黑树
+        else if (p instanceof TreeNode) 
+          e = ((TreeNode<K, V>) p).putTreeVal(this, tab, hash, key, value);
+        // 步骤⑤：该链为链表
+        else {
+            for (int binCount = 0; ; ++binCount) {
+                if ((e = p.next) == null) {
+                    p.next = newNode(hash, key, value, null);
+                    //链表长度大于8转换为红黑树进行处理
+                    if (binCount >= TREEIFY_THRESHOLD - 1) // -1 for 1st  
+                        treeifyBin(tab, hash);
+                    break;
+                }
+                // key已经存在直接覆盖value
+                if (e.hash == hash && ((k = e.key) == key || (key != null && key.equals(k))))
+                    break;
+                p = e;
+            }
+        }
+        if (e != null) { // existing mapping for key
+            V oldValue = e.value;
+            if (!onlyIfAbsent || oldValue == null)
+                e.value = value;
+            afterNodeAccess(e);
+            return oldValue;
+        }
+    }
+    ++modCount;
+    // 步骤⑥：超过最大容量 就扩容
+    if (++size > threshold)
+        resize();
+    afterNodeInsertion(evict);
+    return null;
+}
+```
+
+ 感觉步骤3中描述有错误
+
+## HashMap 扩容
+
+当执行put方法之后,如果size > threshold(即 length * Load factor)时,则需要执行扩容方法(resize)
+
+jdk7中是每个在执行resize时每个都需要重新计算新的索引,即执行indexFor(e.hash, newCapacity); 
+
+而jdk8则比较聪明一些,挂载在某个Node上的节点在新的数组中只会出现在两个固定的位置:
+![HashMap结构](../pic/HashMap_newIndex.png)
+
+
+两种的位置通过高位来判定
+
+## HashMap小结
+
+* 扩容是一个特别耗性能的操作,所以当使用HashMap的时候,估算map的大小,初始化的时候给一个大致的数值,避免map进行频繁的扩容
+* HashMap是线程不安全的,不要在并发的环境中同时操作HashMap(Node.next有可能会造成闭合环),建议使用ConcurrentHashMap
+* 当val为 `Null`的时候,放在了数组的头部
+* 如果想得到支持多线程的Map,可以使用`ConcurrentHashMap` 或者`Collections.synchronizedMap(new HashMap<>());`
+  * `ConcurrentHashMap`  jdk7中是使用分段锁来实现的,而jdk8中是通过CAS实现
+  * `Collections` 则是通过synchronized关键字解决多线程的问题,使用了装饰设计的模式
