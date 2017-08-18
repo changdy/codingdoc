@@ -146,3 +146,12 @@ Main-Class: com.smzdm.main.MainClass
 		该方法唤醒在该对象上等待的某个线程
 	* notifyAll(native)
 		该方法唤醒在该对象上等待的所有线程
+* Throwable介绍
+	 Throwable 下有两个子类,分别是Exception和Error
+	* Exception
+		* unchecked exception
+			也称为运行时异常(RuntimeException),比如常见的`NullPointerException`、`IndexOutOfBoundsException`,不要求强制处理
+		* checked exception
+			Exception中除去RuntimeException, 其他的都可以被称为检查异常,常见的如`IOExeption`,强制要求处理
+	* Error
+		如`OutOfMemoryError`.虽然也可以被catch,但是错误是无法处理,并且jdk官方不推荐进行捕获
