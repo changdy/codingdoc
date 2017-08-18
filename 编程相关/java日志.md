@@ -120,3 +120,29 @@ Main-Class: com.smzdm.main.MainClass
 	* jsp内置对象: request、respons、pageContext、Session、application、out(输出)、Config、page、Exception
 	* jsp动作：jsp:include,jsp:useBean:jsp:setProperty,jsp:getProperty:jsp:forward,jsp:plugin
 	* Servlet生命周期:web容器初始化时,调用init()方法;运行时调用Service方法去处理请求;关闭web容器前调用destroy()方法
+* java序列化
+	可以通过 `ObjectOutputStream` 将当前对象以二进制的形式保存到本地,其中serialVersionUID可以用来校验类版本
+* Object基类方法
+	* clone(protected native)
+		实现对象的浅复制,只有实现了Cloneable接口才可以调用该方法,否则抛出CloneNotSupportedException异常
+	* getClass(final native)
+		获得运行时类型
+	* toString
+		默认是getClass().getName() + "@" + Integer.toHexString(hashCode())//hex是16进制
+	* finalize(protected)
+		该方法用于释放资源,因为无法确定该方法什么时候被调用,很少使用
+	* equals
+		Object类中默认equals是使用==判断,实际中可能需要重写,重写时一般也要重写hashCode方法
+	* hashCode(native)
+		该方法用于哈希查找,在一些具有哈希功能的Collection中用到;一般必须满足:obj1.equals(obj2)==true=>obj1.hashCode()==obj2.hashCode(),但是hashCode相等不一定就满足equals
+	* wait(最终实现为 native)
+		wait方法就是使当前线程等待该对象的锁,当前线程必须是该对象的拥有者,也就是具有该对象的锁.wait()方法一直等待,直到获得锁或者被中断.wait(longtimeout)设定一个超时间隔,如果在规定时间内没有获得锁就返回
+		调用该方法后当前线程进入睡眠状态,直到以下事件发生
+		（1）其他线程调用了该对象的notify 或 notifyAll方法
+		（2）其他线程调用了interrupt中断该线程
+		（3）时间间隔到了
+		此时该线程就可以被调度了,如果是被中断的话就抛出一个InterruptedException异常
+	* notify(native)
+		该方法唤醒在该对象上等待的某个线程
+	* notifyAll(native)
+		该方法唤醒在该对象上等待的所有线程
