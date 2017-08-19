@@ -21,15 +21,15 @@
 `\'`	单引号`\"`	双引号`\\`	反斜杠`\n`	换行`\r`回车`\t`	tab(制表)`\b`	退格符`\f`换页符
 * 类型判断
 	```javascript
-	function User(name , age){
+	function User(name , age){
 	this.name=name;
 	this.age=age;
 	}
-	var u=new User();
-	console.log( 'typeof u  :'+typeof u );  
-	//输出object  
+	var u=new User();
+	console.log( 'typeof u  :'+typeof u );  
+	//输出object  
 	//显然,使用typeof判断复杂类型的对象,就失效了,但使用constructor就可以获取其真实类型
-	console.log( 'u.constructor.name  :'+u.constructor.name );   //user
+	console.log( 'u.constructor.name  :'+u.constructor.name );   //user
 	```
 * JS代码块的Break
 	```javascript
@@ -44,13 +44,13 @@
 		document.write(cars[5] + "<br>"); 
 	}
 	```
-	以上代码生成了名为list的代码块，并且break进行了跳出，同时continue 具有相同作用，不过只能应用于循环，而通过标签，break能够适用于任何js代码块
-* null和Undefined 区别：
+	以上代码生成了名为list的代码块，并且break进行了跳出，同时continue 具有相同作用，不过只能应用于循环，而通过标签，break能够适用于任何js代码块
+* null和Undefined 区别：
 	```javascript
-	typeof undefined             // undefined
-	typeof null                  // object
-	null === undefined           // false
-	null == undefined            // true
+	typeof undefined             // undefined
+	typeof null                  // object
+	null === undefined           // false
+	null == undefined            // true
 	```
 * JS对象类型：
 	* 在 JavaScript 中有 5 种不同的数据类型： 
@@ -82,7 +82,7 @@
 * JS的调试方法包括使用`debugger`，不过使用该方法需要打开浏览器调试工具
 * JS中如果String类型需要分行，要使用`\`
  	```javascript
-	var x = "Hello \
+	var x = "Hello \
 	World!";
 	```
 * 程序块的作用域
@@ -115,14 +115,14 @@
 		return this.firstName + " " + this.lastName;
 		}
 	}
-	myObject.fullName();         // 返回 "John Doe"
+	myObject.fullName();         // 返回 "John Doe"
 	```
 * 使用构造函数调用函数
 	```javascript
 	// 构造函数:
 	function myFunction(arg1, arg2) {
-	    this.firstName = arg1;
-	    this.lastName  = arg2;
+	    this.firstName = arg1;
+	    this.lastName  = arg2;
 	}
 	// This creates a new object
 	var x = new myFunction("John","Doe");
@@ -146,7 +146,7 @@
 	* 如果已经是jQuery对象了了，则往下寻找的时候需要使用`find()`方法，如$("#phase_mx").find("input[name^='mFlt']")
 	* jQuery的模糊匹配包括`^=`，`$=`，`*=`分别对应开始、结束、包含关系。
 * jQuery异步请求
-有三种方式 `$.get`，`$.post`，`$.ajax`，其中前两者是后者的简单方式，如果需要修改一些参数则要使用$.ajax，
+有三种方式 `$.get`，`$.post`，`$.ajax`，其中前两者是后者的简单方式，如果需要修改一些参数则要使用$.ajax，
 	```javascript
 	$.ajax({
 		url: "project/import",
@@ -227,6 +227,9 @@ $('#my-test').prop('disabled',true);
 	func.call(this, arg1, arg2); //正常传参即可
 	func.apply(this, [arg1, arg2]) //需要将被传入的参数,封装成数组对象 tips:可以用arguments对象实现类似转发效果
 	```
+* substring与substr
+   * 如果只传一个参数,没有差别,都是从该位置截取到字符串尾部
+   * 如果传递两个参数,则substr(begain,length)第二个参数是截取字符串的长度,substring
 ## js规范阅读
 * parseInt应该指定进制
 parseInt(inputValue, 10);
@@ -238,7 +241,7 @@ parseInt(inputValue, 10);
 ## 廖雪峰js学习
 * 数组操作
   * indexOf 
-    类似于 str的substring,获取元素位置
+    类似于 str的indexOf,获取元素位置
   * slice 
     类似于 str的substring(都是新的数组,字符串),包含开始节点,没有结束节点,可以用于返回新的数组;
   * push和pop
