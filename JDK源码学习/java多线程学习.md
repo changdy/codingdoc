@@ -93,6 +93,12 @@
 * 为什么wait, notify 和 notifyAll这些方法不在thread类里面?
 
   JAVA提供的锁是对象级的而不是线程级的,每个对象都有锁.这样Java的每一个类都有用于线程间通信的基本方法;如果wait()方法定义在Thread类中,线程正在等待的是哪个锁就不明显
+* java 生产消费者解决方案
+
+  * 采用synchronized锁以及wait notify方法实现
+  * 采用Lock锁以及await和signal方法是实现
+  * 采用BlockingQueue实现
+  * 参考 : [用Java实现生产者消费者的几种方法](https://zhuanlan.zhihu.com/p/20300609)
 
 ## wait和notify用法
 
