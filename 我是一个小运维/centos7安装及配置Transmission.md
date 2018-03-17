@@ -43,3 +43,8 @@
   ```
 
 * 打开 http://ip:9091 即可
+
+##	默认配置
+
+* setting.json默认位置是:`/var/lib/transmission/.config/transmission-daemon/settings.json`
+* systemctl status transmission-daemon
