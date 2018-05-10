@@ -61,5 +61,56 @@
 ## todo
 
 * ranger 预览
-* [z](https://github.com/rupa/z) 尝试使用
-* 一些简单脚本
+
+## 启停脚本
+* 启动
+  ```shell
+  #!/bin/sh
+  rm -f ~/java/xx.pid
+  nohup java -jar xx.jar --spring.profiles.active=dev > /dev/null 2>&1 &
+  echo $! > ~/java/xx.pid
+  echo Start Success!
+  ```
+
+* 停止
+  ```shell
+  #!/bin/sh
+  APP_NAME=myapp
+  tpid=`ps -ef|grep $APP_NAME|grep -v grep|grep -v kill|awk '{print $2}'`
+  if [ ${tpid} ]; then
+    echo 'Stop Process...'
+    kill -15 $tpid
+  fi
+  sleep 3
+  tpid=`ps -ef|grep $APP_NAME|grep -v grep|grep -v kill|awk '{print $2}'`
+  if [ ${tpid} ]; then
+    echo 'Kill Process!'
+    kill -9 $tpid
+  else
+    echo 'Stop Success!'
+  fi
+  ```
+
+* 检查
+
+  ```shell
+  #!/bin/sh
+  APP_NAME=myapp
+  tpid=`ps -ef|grep $APP_NAME|grep -v grep|grep -v kill|awk '{print $2}'`
+  if [ ${tpid} ]; then
+      echo 'App is running.'
+  else
+      echo 'App is NOT running.'
+  fi
+  ```
+
+## 分割日志脚本
+
+* ```shell
+  current_date=`date -d "-1 day" "+%Y%m%d"`
+  echo $current_date
+  split  -b +100m -d -a 4  /home/nohup.out  /home/log/log_${current_date}_
+  tail -180 /home/nohup.out> /home/log/log_${current_date}_tail
+  cat /dev/null > /home/nohup.out
+  xz -v -T0 -9 /home/log/log_${current_date}_*
+  ```
