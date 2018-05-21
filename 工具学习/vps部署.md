@@ -1,6 +1,5 @@
 #  vps记录
 ## vps基础
-* ssh端口一般默认为 22
 * 关闭firewall：
   * 停止firewall
     systemctl stop firewalld.service 
@@ -8,12 +7,6 @@
     systemctl disable firewalld.service 
   * 查看默认防火墙状态（关闭后显示notrunning，开启后显示running）
     firewall-cmd --state 
-* 后台运行
-  nohup java -cp spider.jar com.smzdm.main.MainClass &
-* 删除文件夹
-  `rm -fi [文件夹]`
-## jdk安装
-* yum install java-1.8.0-openjdk
 ## MariaDB
 * vim /etc/yum.repos.d/MariaDB.repo
   ```
