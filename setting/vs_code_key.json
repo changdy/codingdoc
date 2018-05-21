@@ -1,80 +1,37 @@
 // 将键绑定放入此文件中以覆盖默认值
 [
     {
-        "key": "ctrl+shift+up",
-        "command": "editor.action.moveLinesUpAction",
-        "when": "editorTextFocus && !editorReadonly"
+        "key": "ctrl+q",
+        "command": "-workbench.action.quickOpenView"
     },
     {
-        "key": "alt+up",
-        "command": "-editor.action.moveLinesUpAction",
-        "when": "editorTextFocus && !editorReadonly"
-    },
-    {
-        "key": "ctrl+shift+down",
-        "command": "editor.action.moveLinesDownAction",
-        "when": "editorTextFocus && !editorReadonly"
-    },
-    {
-        "key": "alt+down",
-        "command": "-editor.action.moveLinesDownAction",
-        "when": "editorTextFocus && !editorReadonly"
+        "key": "ctrl+q",
+        "command": "-workbench.action.quickOpenNavigateNextInViewPicker",
+        "when": "inQuickOpen && inViewsPicker"
     },
     {
         "key": "ctrl+q",
         "command": "editor.action.deleteLines",
-        "when": "editorTextFocus && !editorReadonly"
+        "when": "textInputFocus && !editorReadonly"
     },
     {
         "key": "ctrl+shift+k",
         "command": "-editor.action.deleteLines",
-        "when": "editorTextFocus && !editorReadonly"
+        "when": "textInputFocus && !editorReadonly"
     },
     {
-        "key": "alt+z",
-        "command": "-editor.action.toggleWordWrap"
+        "key": "ctrl+l",
+        "command": "expandLineSelection",
+        "when": "textInputFocus"
     },
     {
-        "key": "shift+enter",
-        "command": "editor.action.insertLineAfter",
-        "when": "editorTextFocus && !editorReadonly"
-    },
-    {
-        "key": "ctrl+enter",
-        "command": "-editor.action.insertLineAfter",
-        "when": "editorTextFocus && !editorReadonly"
-    },
-    {
-        "key": "ctrl+enter",
-        "command": "editor.action.insertLineBefore",
-        "when": "editorTextFocus && !editorReadonly"
-    },
-    {
-        "key": "ctrl+shift+enter",
-        "command": "-editor.action.insertLineBefore",
-        "when": "editorTextFocus && !editorReadonly"
-    },
-    {
-        "key": "ctrl+oem_5",
-        "command": "-workbench.action.splitEditor"
-    },
-    {
-        "key": "ctrl+oem_5",
-        "command": "editor.action.jumpToBracket",
-        "when": "editorTextFocus"
-    },
-    {
-        "key": "ctrl+shift+oem_5",
-        "command": "-editor.action.jumpToBracket",
-        "when": "editorTextFocus"
+        "key": "ctrl+i",
+        "command": "-expandLineSelection",
+        "when": "textInputFocus"
     },
     {
         "key": "ctrl+m",
         "command": "-editor.action.toggleTabFocusMode"
-    },
-    {
-        "key": "ctrl+shift+m",
-        "command": "-workbench.actions.view.problems"
     },
     {
         "key": "ctrl+m",
@@ -87,31 +44,88 @@
         "when": "editorTextFocus"
     },
     {
-        "key": "ctrl+shift+m",
-        "command": "editor.action.smartSelect.shrink",
-        "when": "editorTextFocus"
-    },
-    {
-        "key": "shift+alt+left",
-        "command": "-editor.action.smartSelect.shrink",
-        "when": "editorTextFocus"
-    },
-    {
-        "key": "alt+oem_2",
-        "command": "editor.action.triggerSuggest",
-        "when": "editorHasCompletionItemProvider && editorTextFocus && !editorReadonly"
-    },
-    {
-        "key": "ctrl+space",
-        "command": "-editor.action.triggerSuggest",
-        "when": "editorHasCompletionItemProvider && editorTextFocus && !editorReadonly"
-    },
-    {
         "key": "alt+oem_3",
         "command": "workbench.action.terminal.toggleTerminal"
     },
     {
+        "key": "ctrl+r t",
+        "command": "-npm-script.test"
+    },
+    {
+        "key": "ctrl+r shift+x",
+        "command": "-npm-script.terminate-script"
+    },
+    {
+        "key": "ctrl+r r",
+        "command": "-npm-script.rerun-last-script"
+    },
+    {
+        "key": "ctrl+r shift+r",
+        "command": "-npm-script.run"
+    },
+    {
+        "key": "ctrl+r l",
+        "command": "-npm-script.showOutput"
+    },
+    {
+        "key": "ctrl+k v",
+        "command": "-markdown.showPreviewToSide",
+        "when": "editorLangId == 'markdown'"
+    },
+    {
+        "key": "shift+alt+o",
+        "command": "-typescript.organizeImports",
+        "when": "typescript.canOrganizeImports && typescript.isManagedFile"
+    },
+    {
         "key": "ctrl+oem_3",
         "command": "-workbench.action.terminal.toggleTerminal"
+    },
+    {
+        "key": "ctrl+shift+5",
+        "command": "-workbench.action.terminal.split",
+        "when": "terminalFocus"
+    },
+    {
+        "key": "ctrl+oem_5",
+        "command": "-workbench.action.splitEditor"
+    },
+    {
+        "key": "ctrl+oem_5",
+        "command": "-workbench.action.terminal.split",
+        "when": "terminalFocus"
+    },
+    {
+        "key": "ctrl+oem_5",
+        "command": "editor.action.jumpToBracket",
+        "when": "editorTextFocus"
+    },
+    {
+        "key": "ctrl+shift+oem_5",
+        "command": "-editor.action.jumpToBracket",
+        "when": "editorTextFocus"
+    },
+    {
+        "key": "ctrl+oem_period",
+        "command": "-editor.action.quickFix",
+        "when": "editorHasCodeActionsProvider && editorTextFocus && !editorReadonly"
+    },
+    {
+        "key": "alt+l",
+        "command": "workbench.action.editor.changeLanguageMode"
+    },
+    {
+        "key": "ctrl+k m",
+        "command": "-workbench.action.editor.changeLanguageMode"
+    },
+    {
+        "key": "ctrl+oem_period",
+        "command": "-settings.action.editFocusedSetting",
+        "when": "inSettingsSearch"
+    },
+    {
+        "key": "alt+l",
+        "command": "-toggleFindInSelection",
+        "when": "editorFocus"
     }
 ]
