@@ -1,3 +1,5 @@
+## 源码安装
+
 安装过程直接`make`就行了，但是有可能报如下错误
 
 ```
@@ -25,3 +27,8 @@ make: *** [all] Error 2
   设置密码为password
 
 启动redis `src/redis-server redis.conf`,用cli登录`src/redis-cli -a password`
+
+## 配置
+
+* 启动状态下可以通过 `config get *` 获取所有的配置
+* 如果想改变配置可以直接 `config set timeout 250`
