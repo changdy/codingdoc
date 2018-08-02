@@ -38,13 +38,13 @@
 * 安装web-ui
 
   ```shell
-  wget https://github.com/ronggang/transmission-web-control/raw/master/release/tr-control-easy-install.sh
-  sh tr-control-easy-install.sh
+  wget https://github.com/ronggang/transmission-web-control/raw/master/release/install-tr-control-cn.sh
+  sh install-tr-control-cn.sh
   ```
 
 * 打开 http://ip:9091 即可
 
-##	默认配置
+  #	默认配置
 
 * setting.json默认位置是:`/var/lib/transmission/.config/transmission-daemon/settings.json`
 * systemctl status transmission-daemon
