@@ -114,3 +114,8 @@
   cat /dev/null > /home/nohup.out
   xz -v -T0 -9 /home/log/log_${current_date}_*
   ```
+
+## 关闭防火墙
+
+* `systemctl stop firewalld.service `
+* `systemctl disable firewalld.service `
