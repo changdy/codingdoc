@@ -69,8 +69,6 @@ add方法执行结束...
 
 该方法有三个入参,分别是 类加载器,可实现的接口,以及一个`InvocationHandler`(反射处理类)接口,不难推测出,实际上的运算是在`InvocationHandler`的实现类中完成的,该接口有一个三入参的方法,并且具有一个返回值,分别对应了被代理的类本身,方法签名,原方法入参以及方法返回值
 
-当然在实际中,一般很少会直接用到原生的方法.大多会使用一些封装的工具 比如[AspectJ](https://mvnrepository.com/artifact/org.aspectj/aspectjrt)
-
 ## mybatis与动态代理
 
 经过上面的讲解,我们已经大致了解了动态代理和静态代理,也学会了如何创建一个代理类.那么我们要抛出核心问题,mybatis的接口是如何被spring代理的?
@@ -89,10 +87,15 @@ add方法执行结束...
 * 类被动态代理之后,直接获取类上注解会爆空指针,可以使用spring 提供的`AnnotationUtils.findAnnotation` 
 * mybatis不支持重载的原因:本质上讲是因为XML的命名规则只包含了namespace以及id,没有涉及入参,所以mybatis也就不支持重载
 * 如果对一个类进行了aop,则自动注入之后的类是spring提供的代理类.如果没有进行aop功能,则获取的是原始类本身
-* 接上条,其实`@Transational` `@Async` 等其实都是通过aop搞个代理类实现的.当你再ioc容器中获取带有这些注解的bean时,其实都已经被替换成了spring 的代理类
+* 接上条,其实`@Transational` `@Async` 等其实都是通过aop搞个代理类实现的.当你在ioc容器中获取带有这些注解的bean时,其实都已经被替换成了spring 的代理类
+* Spring AOP工作方式:
+  - 如果目标对象的实现类实现了接口，Spring AOP 将会采用 JDK 动态代理来生成 AOP 代理类；
+  - 如果目标对象的实现类没有实现接口，Spring AOP 将会采用 CGLIB 来生成 AOP 代理类
+* AspectJ是一个AOP框架，它能够对java代码进行AOP编译（一般在编译期进行），让java代码具有AspectJ的AOP功能（当然需要特殊的编译器).Spring 只是使用了与 AspectJ 5 一样的注解，但仍然没有使用 AspectJ 的编译器，底层依是动态代理技术的实现，因此并不依赖于 AspectJ 的编译器。
 
 ## 参考资料
 
 * [面试官问我注解的使用有没有踩过坑](https://zhuanlan.zhihu.com/p/66712661)
 * [浅谈JDK动态代理（上）](https://zhuanlan.zhihu.com/p/62534874)
 * [阿里面试题：Mybatis中的Dao接口和XML文件里的SQL是如何建立关系的？](https://zhuanlan.zhihu.com/p/61029087)
+* [Spring学习与面试](https://snailclimb.gitee.io/javaguide/#/./system-design/framework/Spring学习与面试)
