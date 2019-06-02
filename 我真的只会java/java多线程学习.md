@@ -81,6 +81,14 @@
 
   因为这些方法线程不安全,所以被列为过时
 
+## ThreadLocal
+
+- Thread类中有一个ThreadLocalMap成员变量类(一个定义在ThreadLocal类中的内部类),它是一个Map,key是ThreadLocal实例对象
+- 当为ThreadLocal类的对象set值时,首先获得当前线程的ThreadLocalMap,然后以ThreadLocal类的对象为key,设定value.get值时则类似.
+- ThreadLocal变量的活动范围为线程,是该线程"专有的,独自霸占"的,对该变量的所有操作均由该线程完成！也就是说,ThreadLocal 不是用来解决共享对象的多线程访问的竞争问题的,因为ThreadLocal.set() 到线程中的对象是该线程自己使用的对象,其他线程是不需要访问的,也访问不到的.当线程终止后,这些值会作为垃圾回收.
+- 由ThreadLocal的工作原理决定了：每个线程独自拥有一个变量,并非是共享的
+- ThreadLocal的key为弱引用,内存清理的时候可能会造成key为null,但是value仍然存在的情况,可能由此引发内存泄露,当不需要ThreadLocal对象时需要调用下 `remove`方法
+
 ## 面试考点
 
 * sleep和wait 的区别?
@@ -201,7 +209,6 @@ continue:10:29:17.400
 
    每个线程保留一份该类的拷贝,互相之间并不影响
 
-   ​
 
 ## 并发三个问题
 

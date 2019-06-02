@@ -89,8 +89,9 @@ add方法执行结束...
 * 如果对一个类进行了aop,则自动注入之后的类是spring提供的代理类.如果没有进行aop功能,则获取的是原始类本身
 * 接上条,其实`@Transational` `@Async` 等其实都是通过aop搞个代理类实现的.当你在ioc容器中获取带有这些注解的bean时,其实都已经被替换成了spring 的代理类
 * Spring AOP工作方式:
-  - 如果目标对象的实现类实现了接口，Spring AOP 将会采用 JDK 动态代理来生成 AOP 代理类；
+  - 如果目标对象的实现类实现了接口，Spring AOP 将会采用 JDK 动态代理来生成 AOP 代理类(java8的时候速度已经优于CGLIB)
   - 如果目标对象的实现类没有实现接口，Spring AOP 将会采用 CGLIB 来生成 AOP 代理类
+* CGLib动态代理是通过字节码底层继承要代理类来实现,所以类如果被final修饰则会创建失败.
 * AspectJ是一个AOP框架，它能够对java代码进行AOP编译（一般在编译期进行），让java代码具有AspectJ的AOP功能（当然需要特殊的编译器).Spring 只是使用了与 AspectJ 5 一样的注解，但仍然没有使用 AspectJ 的编译器，底层依是动态代理技术的实现，因此并不依赖于 AspectJ 的编译器。
 
 ## 参考资料
@@ -99,3 +100,4 @@ add方法执行结束...
 * [浅谈JDK动态代理（上）](https://zhuanlan.zhihu.com/p/62534874)
 * [阿里面试题：Mybatis中的Dao接口和XML文件里的SQL是如何建立关系的？](https://zhuanlan.zhihu.com/p/61029087)
 * [Spring学习与面试](https://snailclimb.gitee.io/javaguide/#/./system-design/framework/Spring学习与面试)
+* [Spring AOP中的JDK和CGLib动态代理哪个效率更高？](https://zhuanlan.zhihu.com/p/67041662)
