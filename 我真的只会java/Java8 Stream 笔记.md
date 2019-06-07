@@ -197,3 +197,34 @@ list.stream().reduce(new ArrayList<>(), (acc, x) -> {
 ## Stream的多线程
 
 并且同时注意到我虽然在上述代码中使用了并行处理,但并没有使用juc.这是因为Stream使用了forkjoin的思路,所以当使用多线程的时候,并不会有线程安全的问题.但是会有排序的问题,有可能会返回不同的期望值,这点需要额外注意
+
+## Stream与BaseStream
+
+* `Arrays.stream` 有以下重载
+
+    ```java
+    <T> Stream<T> stream(T[] array) 
+    <T> Stream<T> stream(T[] array, int startInclusive, int endExclusive) 
+    IntStream stream(int[] array) 
+    IntStream stream(int[] array, int startInclusive, int endExclusive) 
+    LongStream stream(long[] array) 
+    LongStream stream(long[] array, int startInclusive, int endExclusive) 
+    DoubleStream stream(double[] array) 
+    DoubleStream stream(double[] array, int startInclusive, int endExclusive) 
+    ```
+
+    可以看到 非基本对象的数组和基本对象的数组使用 `Arrays.stream` 后返回的对象并不相同, 同时IntStream,LongStream等并没有继承`java.util.stream.Stream` 而是继承自`BaseStream` .但大多数方法和`Stream`保持一致,不过多了一些`sum` `summaryStatistics`等和统计有关的方法
+
+* stream 与BaseStream的转换
+
+  ```java
+  BaseStream.mapToObj();// BaseStream 转Stream
+  Stream.mapToInt();// 转Stream转BaseStream
+  ```
+
+* 除了由`int` `long` `double` 组成的数组可以通过`Arrays.stream` 得到`BaseStream`之外,由其他基本对象组成的数组需要变成其包装类之后才能进行stream操作
+
+  ```java
+  Arrays.stream({'1', '2', '3'});// 报错
+  ```
+
