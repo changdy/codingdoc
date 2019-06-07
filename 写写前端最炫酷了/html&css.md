@@ -4,12 +4,14 @@
 ## html标签
 * `<pre>`
   可以用来显示空格，会保持原有文字格式
+  
 * `<a>`
   可以用来进行跳转到指定位置锚点,因此可以直接利用href="#"来跳转到顶部,以及'www.changdy.com#c4'这种形式跳转到指定位置
   ```html
   <a href="#C4">查看章节 4</a>
   <h2><a id="C4">章节 4</a></h2>
   ```
+  
 * `<head>`
   在 `<head>`元素中你可以插入脚本（scripts）, 样式文件（CSS），及各种meta信息: `<title>` `<style>` `<meta>` `<link>` `<script>` `<noscript>` `<base>`
   * `<base>`
@@ -27,8 +29,11 @@
     ```
   * `<noscript>`
     如果当前浏览器禁止js运行则会显示 `<noscript>`里面的信息。
+  
 * `<div>` `<span>`
   div是块元素(block-level),span为内联元素(inline)。两个都没有特殊意义。块元素一般会新行开始、二内联元素一般不会以新行开始
+  
+* [10 个不常用但你有必要知道的 html 标签](https://www.v2ex.com/t/551323#reply8)
 ## css
 ### css样式优先级
 * 根据权值

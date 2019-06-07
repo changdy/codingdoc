@@ -1,78 +1,27 @@
 # todolist
 
-> 希望以此善待自己
+> 重新开始给自己树flag
 
-## java方向
-* 权限管理
-  * ~~目测会用到shiro~~
-* 再说吧,其实如果项目需求变更比较大的话可能自己控制权限也不错
-* 缓存技术
-* 分布式好像没怎么听说缓存了
-* 高并发
-* 好好写代码并发就高了
-* 多线程
-  * ~~这个看下吧不算太重点~~
-* juc下面的包看了一些
-* 基础算法
-* 大概了解思路,改天实现一边把
-* jvm底层实现
-* 不行内存模型不懂
-* javafx
-## 前端方向
+## 长期
 
-**前端方向的学习扩展暂时搁置**
+* 以下仓库知识点系统的学习与记录
 
-* CSS
-    * markdown补充样式
-    * 基础样式学习,css3动画暂时不准备
-    * 图片幻灯片
-    * 电影展示
-* JS
-    * Vue
-    * 尝试写个日期组件吧
-*  Node.js
-    * 弄个博客出来放点电影什么的
-    * ~~npm 什么鬼~~
-    * ~~webpack~~
-## 数据库方向
-* 索引
+  - [ ] [CS-Notes](https://github.com/CyC2018/CS-Notes)
+  - [ ] [JCSprout](https://github.com/crossoverJie/JCSprout)
+  - [ ] [JavaGuide](https://github.com/Snailclimb/JavaGuide)
+  - [ ] [后端架构师技术图谱](https://github.com/xingshaocheng/architect-awesome)
+  - [ ] [3y原创技术文章导航](https://github.com/ZhongFuCheng3y/3y)
+  - [ ] [Java工程师成神之路](https://github.com/hollischuang/toBeTopJavaer)
+  - [ ] [互联网 Java 工程师进阶知识完全扫盲](https://github.com/doocs/advanced-java)
+  - [ ] [ZXBlog](https://github.com/ZXZxin/ZXBlog)
+* 英语学习
 
-  * ~~搁置,先学习数据结构和算法~~
-* 大概了解了常用的树结构
-* 查询优化
-  * 一些常用的也了解了
-# 其他
-* 网络协议
-  
-* socks http 各层次之间的关系
-  * 不行网络协议还是重点
-  
-* ~~Linux~~ 
+* 仿照UC浏览器开发一个chrome浏览器历史记录插件
 
-  基本满足日常使用
-## 日常
-* 减肥
-  * ~~目前太胖了,都快成智障了~~
-  * 还有点胖 但不是智障了
-* 英语
-  英语各方面都有点太差了.以后每天早上还是要练习下发音,多背单词,要不然以后看个api都困难
-* 戒骄戒躁戒手机
-  这段时间浪费太多了,比起去年零食都不敢吃真是相差十万八千里.希望自己能够快点恢复过来
+* 用Electorn写一个手机和pc端同步工具
 
-## done
+## 2016-06-02
 
-* Redis
-  ~~这个一直不太懂,但是又经常听说,将来需要实践一下~~
-
-  基本熟悉,key-value数据库
-
-* ~~单点登录~~
-  ~~这个也是听说蛮多但是不知~~
-
-  尝试过,已经可以自己实现
-
-- ~~spring事务管理~~
-- ~~JUnit~~
-- ~~Java设计模式~~
-  ~~买本书看吧,推荐挺多的~~
-- ~~java8特性~~
+- [ ] 前段时间学习的知识点整理
+- [ ] 很久之前的零碎知识点也做个统计
+- [ ] N皇后问题
