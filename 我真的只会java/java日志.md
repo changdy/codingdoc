@@ -16,6 +16,7 @@
 		SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss");//2017-02-08 09:26:54
 		SimpleDateFormat sdf = new SimpleDateFormat("yyyy-M-d H:m:s");//2017-2-8 9:25:45
 		```
+	
 * java8日期新特性
 	* LocalDate
 		```java
@@ -88,22 +89,28 @@
 	* 支持
 		* 6.0.5 版本的mysql
 		* 3.4.2 版本的mybatis已经支持LocalDateTime 转换成数据库的DateTime(仍然需要额外的包)
+	
 * javaWeb项目获得当前目录 `getClass().getResource("").getFile().toString();`
+
 * javaWeb项目获得项目根目录 `getClass().getResource("/").getFile().toString();`
+
 * java8支持以`forEach`遍历
 	```java
 	map.forEach((key, value) -> System.out.println(key + " : " + value))
 	```
+	
 * java8 Stream
 	```java
 	Stream.of(List<Integer>...);//得到的是Stream<List<Integer>>
 	List<Integer>.stream();//得到的是Stream<Integer>
 	//Stream<List<Integer>>需要进行 .flatMap(Collection::stream)操作才能得到Stream<Integer>
 	```
+	
 * jar 运行
-java -cp spider.jar com.smzdm.main.MainClass
-java -jar test.jar
-Main-Class: com.smzdm.main.MainClass
+  java -cp spider.jar com.smzdm.main.MainClass
+  java -jar test.jar
+  Main-Class: com.smzdm.main.MainClass
+
 * jdk 7 文件流
 	```java
 	//读取全部
@@ -116,12 +123,15 @@ Main-Class: com.smzdm.main.MainClass
 	//尾部添加
 	Files.write(Paths.get("/home/biezhi/b.txt"), "Hello JDK7!".getBytes(), StandardOpenOption.APPEND);
 	```
+	
 * java ee
 	* jsp内置对象: request、respons、pageContext、Session、application、out(输出)、Config、page、Exception
 	* jsp动作：jsp:include,jsp:useBean:jsp:setProperty,jsp:getProperty:jsp:forward,jsp:plugin
 	* Servlet生命周期:web容器初始化时,调用init()方法;运行时调用Service方法去处理请求;关闭web容器前调用destroy()方法
+	
 * java序列化
 	可以通过 `ObjectOutputStream` 将当前对象以二进制的形式保存到本地,其中serialVersionUID可以用来校验类版本
+	
 * Object基类方法
 	* clone(protected native)
 		实现对象的浅复制,只有实现了Cloneable接口才可以调用该方法,否则抛出CloneNotSupportedException异常
@@ -146,6 +156,7 @@ Main-Class: com.smzdm.main.MainClass
 		该方法唤醒在该对象上等待的某个线程
 	* notifyAll(native)
 		该方法唤醒在该对象上等待的所有线程
+	
 * Throwable介绍
 	 Throwable 下有两个子类,分别是Exception和Error
 	* Exception
@@ -155,3 +166,32 @@ Main-Class: com.smzdm.main.MainClass
 			Exception中除去RuntimeException, 其他的都可以被称为检查异常,常见的如`IOExeption`,强制要求处理
 	* Error
 		如`OutOfMemoryError`.虽然也可以被catch,但是错误是无法处理,并且jdk官方不推荐进行捕获
+	
+* java正则
+	
+	```java
+	public class TesReg {
+	    @Test
+	    public void testString() {
+	        // 与js略不同,/[A-Z]/.test('检测是否包含大小写AAAbbb');
+	        // 而java则需要把正则补全
+	        System.out.println("检测是否包含大小写AAAbbb".matches(".*[A-Z].*"));
+	    }
+	
+	    @Test
+	    public void testGroup() {
+	        String line = "This order was placed for QT3000! OK?";
+	        Pattern pattern = Pattern.compile("(\\D*)(\\d+)(.*)");
+	        Matcher matcher = pattern.matcher(line);
+	        if (matcher.matches()) {
+	            for (int i = 0; i <= matcher.groupCount(); i++) {
+	                System.out.printf("Found %d group:" + matcher.group(i) + "\n", i);
+	            }
+	        } else {
+	            System.out.println("NO MATCH");
+	        }
+	    }
+	}
+	```
+	
+	
