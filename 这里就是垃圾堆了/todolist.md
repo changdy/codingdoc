@@ -15,10 +15,14 @@
   - [ ] [互联网 Java 工程师进阶知识完全扫盲](https://github.com/doocs/advanced-java)
   - [ ] [ZXBlog](https://github.com/ZXZxin/ZXBlog)
 * 英语学习
-
 * 仿照UC浏览器开发一个chrome浏览器历史记录插件
-
 * 用Electorn写一个手机和pc端同步工具
+
+## 疑难杂症
+
+- [ ] 为什么mysql之前都不支持倒序排序 , 按理来说B+树下面转成双线链表应该很简单啊
+- [ ] 规则引擎:一般项目会用到吗,有啥实际的应用
+- [ ] hash是怎么实现字符串查找的?: [为什么 360 面试官说 Trie 树没用？](https://www.zhihu.com/question/27168319)
 
 ## 2016-06-02
 
