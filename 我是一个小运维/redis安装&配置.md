@@ -1,6 +1,6 @@
 ## 源码安装
 
-安装过程直接`make`就行了，但是有可能报如下错误
+安装过程直接`make`就行了 , 但是有可能报如下错误
 
 ```
 zmalloc.h:50:31: error: jemalloc/jemalloc.h: No such file or directory
@@ -16,7 +16,7 @@ make: *** [all] Error 2
 
 * bind IPA IPB
 
-  以空格分开，可以多个ip，如果想所有ip都被允许则`bind 0.0.0.0`
+  以空格分开 , 可以多个ip, 如果想所有ip都被允许则`bind 0.0.0.0`
 
 * daemonize yes
 
@@ -26,7 +26,7 @@ make: *** [all] Error 2
 
   设置密码为password
 
-启动redis `src/redis-server redis.conf`,用cli登录`src/redis-cli -a password`
+启动redis `src/redis-server redis.conf`, 用cli登录`src/redis-cli -a password`
 
 ## 配置
 

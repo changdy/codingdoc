@@ -7,7 +7,7 @@
   * `-d` --diff, --compare      找出归档和文件系统的差异
   * `--delete` 从压缩包中删除
 * 压缩属性
-  * `-j` bzip2属性 后缀.tar.bz2
+  * `-j` bzip2属性 后缀 .tar.bz2
   * `-J` xz 属性
   * `-z` gzip属性 后缀 tar.gz
 * 其他选项

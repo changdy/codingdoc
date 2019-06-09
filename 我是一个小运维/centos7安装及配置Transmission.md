@@ -22,10 +22,10 @@
   ```json
   {
       "rpc-authentication-required": true,#开启认证登录
-      "rpc-password": "密码",#直接修改，保存后会自动加密
+      "rpc-password": "密码",#直接修改 , 保存后会自动加密
       "rpc-username": "账号",#管理员账号
-      "rpc-port": 9091,#管理登录端口，最好修改
-      "rpc-whitelist-enabled": false,#关闭白名单，所有IP都能登录
+      "rpc-port": 9091,#管理登录端口 , 最好修改
+      "rpc-whitelist-enabled": false,#关闭白名单 , 所有IP都能登录
   }
   ```
 
@@ -46,5 +46,5 @@
 
   #	默认配置
 
-* setting.json默认位置是:`/var/lib/transmission/.config/transmission-daemon/settings.json`
+* setting.json默认位置是 :`/var/lib/transmission/.config/transmission-daemon/settings.json`
 * systemctl status transmission-daemon

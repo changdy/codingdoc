@@ -4,7 +4,7 @@
   * `unar test.zip`
   * `yum install unar -y`
 * [htop](http://hisham.hm/htop/)
-  * 代替top命令，方便查看系统状态
+  * 代替top命令 , 方便查看系统状态
   * `yum install -y htop` (需要EPEL)
 * [rg](https://github.com/BurntSushi/ripgrep)
   * 比ag更快的递归搜索文件内容
@@ -19,7 +19,7 @@
   * `pip install -U mycli`
 * [fzf](https://github.com/junegunn/fzf)
   * 命令行下模糊搜索工具
-  * `ctrl r` 历史命令 `ctrl t` 文件搜索,kill 也能用
+  * `ctrl r` 历史命令 `ctrl t` 文件搜索 ,kill 也能用
   * 
     ```shell
     git clone --depth 1 https://github.com/junegunn/fzf.git ~/.fzf
@@ -29,14 +29,14 @@
   * 通过ssh链接上传下载文件
   * `yum install lrzsz`
 * [tldr](https://github.com/tldr-pages/tldr)
-  * 以用例解释软件用途，类似还有`cheat`
-  * `npm install -g tldr` ,有问题的话 ,[可能需要](https://github.com/tldr-pages/tldr-node-client#npm-install--g-tldr-throws-an-error) `npm install -g tldr --unsafe-perm`
+  * 以用例解释软件用途 , 类似还有`cheat`
+  * `npm install -g tldr` , 有问题的话 ,[可能需要](https://github.com/tldr-pages/tldr-node-client#npm-install--g-tldr-throws-an-error) `npm install -g tldr --unsafe-perm`
 * denyhosts
   * 自动禁用ssh失败ip
   * `yum install denyhosts`
 * EPEL
-  * 我也不知道是啥,貌似东西会多一些,比如htop会依赖这个
-  * `yum install -y epel-release` ,替代源:[科技大学](http://mirrors.ustc.edu.cn/help/epel.html)
+  * 我也不知道是啥 , 貌似东西会多一些 , 比如htop会依赖这个
+  * `yum install -y epel-release` , 替代源 :[科技大学](http://mirrors.ustc.edu.cn/help/epel.html)
 * [ncdu](https://dev.yorhel.nl/ncdu)
   * du可视化
   * `yum install ncdu`
@@ -56,7 +56,7 @@
 * find / -type f -size +200M
 * cat /dev/null > saa_wx.log
 * nohup xxx  >/dev/null 2>&1  &
-* `ctrl a` 终端开始，`ctrl e`
+* `ctrl a` 终端开始 ,`ctrl e`
 
 ## todo
 

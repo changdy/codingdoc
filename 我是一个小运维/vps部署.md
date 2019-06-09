@@ -1,11 +1,11 @@
 #  vps记录
 ## vps基础
-* 关闭firewall：
+* 关闭firewall : 
   * 停止firewall
     systemctl stop firewalld.service 
   * 禁止firewall开机启动
     systemctl disable firewalld.service 
-  * 查看默认防火墙状态（关闭后显示notrunning，开启后显示running）
+  * 查看默认防火墙状态 (关闭后显示notrunning, 开启后显示running)
     firewall-cmd --state 
 ## MariaDB
 * vim /etc/yum.repos.d/MariaDB.repo
@@ -52,7 +52,7 @@
 * vim  apache-tomcat-8.5.15/conf/server.xml
   URIEncoding="UTF-8"
  * 调用管理界面还需要去掉外网配置
-* 改为中国时区,只需要在catalina.sh中第一行加入
+* 改为中国时区 , 只需要在catalina.sh中第一行加入
 `JAVA_OPTS="$JAVA_OPTS -Dfile.encoding=UTF8  -Duser.timezone=GMT+08"`
 * ./apache-tomcat-8.5.15/bin/shutdown.sh
 * ./apache-tomcat-8.5.15/bin/startup.sh
