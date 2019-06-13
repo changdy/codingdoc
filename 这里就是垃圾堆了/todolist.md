@@ -33,12 +33,19 @@
 
 ## 2019-06-08
 
-- [ ] mysql 资料以及索引优化整理
+- [x] mysql 资料以及索引优化整理
 - [ ] 构建自己的网络知识
 
 ## 2019-06-13
 
-- [ ] js的 `JSON.parse`方法如何防止精度丢失
+- [x] js的 `JSON.parse`方法如何防止精度丢失
+
+  如果不使用字符串的话 , 最好使用第三方库 比如 [json-bigint](https://github.com/sidorares/json-bigint)
+
+  前端如果不进行运算的话 , 最好使用 字符串替代 长整型. 如果一定要进行运算 只能借助第三方库,比如: [bignumber.js](https://github.com/MikeMcl/bignumber.js) , [decimal.js](https://github.com/MikeMcl/decimal.js/) [mathjs](https://github.com/josdejong/mathjs/) 
+
 - [ ] 前端直接生成并下载文件的方法
+
 - [ ] 各种锁的情况
+
 - [ ] Spring 整理一下
