@@ -14,8 +14,13 @@
   - [ ] [Java工程师成神之路](https://github.com/hollischuang/toBeTopJavaer)
   - [ ] [互联网 Java 工程师进阶知识完全扫盲](https://github.com/doocs/advanced-java)
   - [ ] [ZXBlog](https://github.com/ZXZxin/ZXBlog)
+  
 * 英语学习
+
 * 仿照UC浏览器开发一个chrome浏览器历史记录插件
+
+  暂时搁浅 , 好久不用CSS已经不会写布局了
+
 * 用Electorn写一个手机和pc端同步工具
 
 ## 疑难杂症
@@ -40,9 +45,9 @@
 
 - [x] js的 `JSON.parse`方法如何防止精度丢失
 
-  如果不使用字符串的话 , 最好使用第三方库 比如 [json-bigint](https://github.com/sidorares/json-bigint)
+  可以把数字序列化成字符串,或者使用第三方库 比如 [json-bigint](https://github.com/sidorares/json-bigint)
 
-  前端如果不进行运算的话 , 最好使用 字符串替代 长整型. 如果一定要进行运算 只能借助第三方库,比如: [bignumber.js](https://github.com/MikeMcl/bignumber.js) , [decimal.js](https://github.com/MikeMcl/decimal.js/) [mathjs](https://github.com/josdejong/mathjs/) 
+  另外前端如果不进行运算的话 , 最好使用字符串替代长整型. 如果一定要进行运算 只能借助第三方库,比如: [bignumber.js](https://github.com/MikeMcl/bignumber.js) , [decimal.js](https://github.com/MikeMcl/decimal.js/) [mathjs](https://github.com/josdejong/mathjs/) 
 
 - [ ] 前端直接生成并下载文件的方法
 
@@ -50,3 +55,8 @@
 
 - [ ] Spring 整理一下
 
+- [ ] js 如何简单深拷贝
+
+- [ ] 前端发送请求的时候 为什么js线程暂时挂起
+
+- [ ] synchronized  java是如何优化的
