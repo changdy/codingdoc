@@ -60,3 +60,7 @@
 - [ ] 前端发送请求的时候 为什么js线程暂时挂起
 
 - [ ] synchronized  java是如何优化的
+
+### 2019-06-15
+
+- [ ] [bower](https://bower.io/) 了解
