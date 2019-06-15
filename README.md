@@ -49,7 +49,9 @@
 
   另外前端如果不进行运算的话 , 最好使用字符串替代长整型. 如果一定要进行运算 只能借助第三方库,比如: [bignumber.js](https://github.com/MikeMcl/bignumber.js) , [decimal.js](https://github.com/MikeMcl/decimal.js/) [mathjs](https://github.com/josdejong/mathjs/) 
 
-- [ ] 前端直接生成并下载文件的方法
+- [x] 前端直接生成并下载文件的方法
+
+  [照片批量下载](https://github.com/changdy/demo/blob/master/script/%E7%85%A7%E7%89%87%E6%89%B9%E9%87%8F%E4%B8%8B%E8%BD%BD.md)
 
 - [ ] 各种锁的情况
 
