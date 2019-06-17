@@ -63,7 +63,7 @@
 
   `Map` `Set` 以及 `Moment`  .另外 `{...obj}` ` Object.assgin({},obj)` 都是浅拷贝 ,纯基本数据类型的确用 `JSON.parse(JSON.stringify())`最简单
 
-- [ ] 前端发送请求的时候 为什么js线程暂时挂起
+- [x] [从输入URL到页面加载的过程](https://github.com/changdy/codingdoc/blob/master/%E5%86%99%E5%86%99%E5%89%8D%E7%AB%AF%E6%9C%80%E7%82%AB%E9%85%B7%E4%BA%86/%E4%BB%8E%E8%BE%93%E5%85%A5URL%E5%88%B0%E9%A1%B5%E9%9D%A2%E5%8A%A0%E8%BD%BD%E7%9A%84%E8%BF%87%E7%A8%8B.md)
 
 - [ ] synchronized  java是如何优化的
 
