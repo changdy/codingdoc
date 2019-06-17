@@ -57,12 +57,24 @@
 
 - [ ] Spring 整理一下
 
-- [ ] js 如何简单深拷贝
+- [x] js 如何简单深拷贝
+
+  确实没啥简单实现深拷贝的方法 , (对js的鄙视+1).  一般来说只能借助第三方库实现: 比如 lodash的`_.cloneDeep()` 和 `jQuery.extend` , 也可以自己实现 , 但要想好怎么处理非基本类型 , 比如
+
+  `Map` `Set` 以及 `Moment`  .另外 `{...obj}` ` Object.assgin({},obj)` 都是浅拷贝 ,纯基本数据类型的确用 `JSON.parse(JSON.stringify())`最简单
 
 - [ ] 前端发送请求的时候 为什么js线程暂时挂起
 
 - [ ] synchronized  java是如何优化的
 
-### 2019-06-15
+## 2019-06-15
 
-- [ ] [bower](https://bower.io/) 了解
+- [x] [bower](https://bower.io/) 了解
+
+  应该是和 npm yarn之类的工具了,现在估计 已经不需要用了
+
+  >  We don't recommend using Bower for new projects. Please consider Yarn and Webpack or Parcel.
+
+## 2019-06-16
+
+- [ ] 多进程 多线程 是如何与cpu的 核心和线程数量对应的
