@@ -84,3 +84,9 @@
 
 - [ ] `AbstractQueuedSynchronizer` 重新再了解一遍
 - [ ] JAVA 信息诊断
+
+## 2019-06-19
+
+- [ ] [唯品会Java开发手册](https://github.com/DarLiner/vjtools)
+- [ ] mysql 事务实践
+- [ ] fetch 搞定
