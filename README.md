@@ -23,6 +23,8 @@
 
 * 用Electorn写一个手机和pc端同步工具
 
+* 了解下 [canal](https://github.com/alibaba/canal) 和 [SHARDING-JDBC](https://shardingsphere.apache.org/document/current/cn/quick-start/sharding-jdbc-quick-start/) 
+
 ## 疑难杂症
 
 - [ ] 为什么mysql之前都不支持倒序排序 , 按理来说B+树下面转成双线链表应该很简单啊
@@ -77,3 +79,8 @@
 ## 2019-06-16
 
 - [ ] 多进程 多线程 是如何与cpu的 核心和线程数量对应的
+
+## 2019-06-18
+
+- [ ] `AbstractQueuedSynchronizer` 重新再了解一遍
+- [ ] JAVA 信息诊断
