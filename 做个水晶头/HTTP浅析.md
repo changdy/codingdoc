@@ -11,7 +11,7 @@
 * 1.1:
 增加了新的缓存控制`Cache-Control`、`Etag/If-None-Match` 默认常链接 支持断点续传  新增方法 OPTIONS, PUT, DELETE, TRACE 和 CONNECT
 * 2.0:
-多路复用,头部压缩, 服务器推送,强制https  HTTP/2 采用二进制格式传输数据，而非文本格式，二进制协议解析起来更高效
+多路复用,头部压缩, [服务器推送](https://zhuanlan.zhihu.com/p/36222488) (和我理解的不一样),强制https  HTTP/2 采用二进制格式传输数据，而非文本格式，二进制协议解析起来更高效
 
 * 3.0:
 
