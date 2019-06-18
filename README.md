@@ -53,7 +53,7 @@
 
   [照片批量下载](https://github.com/changdy/demo/blob/master/script/%E7%85%A7%E7%89%87%E6%89%B9%E9%87%8F%E4%B8%8B%E8%BD%BD.md)
 
-- [ ] 各种锁的情况
+- [x] [各种锁的情况](我真的只会java/JAVA锁事.md)
 
 - [ ] Spring 整理一下
 
@@ -65,7 +65,6 @@
 
 - [x] [从输入URL到页面加载的过程](https://github.com/changdy/codingdoc/blob/master/%E5%86%99%E5%86%99%E5%89%8D%E7%AB%AF%E6%9C%80%E7%82%AB%E9%85%B7%E4%BA%86/%E4%BB%8E%E8%BE%93%E5%85%A5URL%E5%88%B0%E9%A1%B5%E9%9D%A2%E5%8A%A0%E8%BD%BD%E7%9A%84%E8%BF%87%E7%A8%8B.md)
 
-- [ ] synchronized  java是如何优化的
 
 ## 2019-06-15
 
