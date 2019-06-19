@@ -39,12 +39,14 @@ CREATE TABLE test_table(
 #### 分析:
 
 * 开启事务之后 , MySql仍然可以读取到已提交的修改 . 但是 对于同一张表 , 首次读取之后 , 该表的数据就不在受其他会话`DML` 语句的影响  . 通过这种方式实现了重复读 
-* 推测重复读可能需要对表进行版本标识 , Mysql并不会在开启锁的时候给所有表加入标识,而是推迟到 首次进行`select` 操作时
+
+* 推测重复读可能需要对表进行版本标识 , Mysql并不会在开启锁的时候给所有表加入标识,而是推迟到 首次进行`select` 操作时 (看来是基于MVCC)
+
+  [Mysql可重复读（2） —— 快照真的就是快照吗](https://zhuanlan.zhihu.com/p/55872397)
+
 * 可以看到 在事务里面直接`select` 并不会对表进行加锁 , 只有在`SELECT ..for update`时才会对表进行加锁
 
 ### 意向锁及DML测试
-
-
 
 #### 步骤
 
@@ -72,8 +74,6 @@ INSERT INTO test_table (id, string) VALUES (3, 3);
 * 在给表添加行锁的时候 , 同时会给表添加一个意向锁 .当其他事物尝试给表添加行锁的时候 意向锁不会阻塞. 但如果尝试给表添加表锁的时候 ,则需要等待 之前行锁及意向锁的释放 . 意向锁不需要由用户操作 , MySql会自动根据情况添加
 * TRUNCATE  不受事务影响 , 并且 TRUNCATE  或者 其他`DML` 语句也会隐式的给表添加表锁
 
-
-
 ## 参考
 
 * [InnoDB 的意向锁有什么作用？](https://www.zhihu.com/question/51513268/answer/127777478)
@@ -82,4 +82,4 @@ INSERT INTO test_table (id, string) VALUES (3, 3);
 
 * [互联网项目中mysql应该选什么事务隔离级别](https://zhuanlan.zhihu.com/p/59061106)
 
-  介绍了Mysql为什么使用**可重复读(Repeatable Read)**作为默认的隔离级别
+  介绍了Mysql为什么使用**可重复读(Repeatable Read)**作为默认的隔离级别及其缺点,但推荐实际中应该选用**读已提交(Read Commited)**
