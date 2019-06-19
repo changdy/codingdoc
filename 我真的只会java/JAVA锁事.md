@@ -55,3 +55,7 @@
 * [Java synchronized原理总结](https://zhuanlan.zhihu.com/p/29866981)
 
   锁消除 , 锁粗化 部分摘抄自该文章
+
+* [深度解析 Java 8：JDK1.8 AbstractQueuedSynchronizer 的实现分析（上）](https://www.infoq.cn/article/jdk1.8-abstractqueuedsynchronizer)
+
+  结合ReentrantLock 分析 AQS , 另外可知后面排队的线程未必严格按照顺序执行 , 会结合线程的等待状态

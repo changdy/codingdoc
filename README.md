@@ -1,4 +1,4 @@
-# todolist
+todolist
 
 > 重新开始给自己树flag
 
@@ -14,6 +14,7 @@
   - [ ] [Java工程师成神之路](https://github.com/hollischuang/toBeTopJavaer)
   - [ ] [互联网 Java 工程师进阶知识完全扫盲](https://github.com/doocs/advanced-java)
   - [ ] [ZXBlog](https://github.com/ZXZxin/ZXBlog)
+  - [ ] [美团技术团队](https://tech.meituan.com/)
   
 * 英语学习
 
@@ -65,7 +66,7 @@
 
   `Map` `Set` 以及 `Moment`  .另外 `{...obj}` ` Object.assgin({},obj)` 都是浅拷贝 ,纯基本数据类型的确用 `JSON.parse(JSON.stringify())`最简单
 
-- [x] [从输入URL到页面加载的过程](https://github.com/changdy/codingdoc/blob/master/%E5%86%99%E5%86%99%E5%89%8D%E7%AB%AF%E6%9C%80%E7%82%AB%E9%85%B7%E4%BA%86/%E4%BB%8E%E8%BE%93%E5%85%A5URL%E5%88%B0%E9%A1%B5%E9%9D%A2%E5%8A%A0%E8%BD%BD%E7%9A%84%E8%BF%87%E7%A8%8B.md)
+- [x] [从输入URL到页面加载的过程](写写前端最炫酷了/从输入URL到页面加载的过程.md)
 
 
 ## 2019-06-15
@@ -78,15 +79,24 @@
 
 ## 2019-06-16
 
-- [ ] 多进程 多线程 是如何与cpu的 核心和线程数量对应的
+- [x] 多进程 多线程 是如何与cpu的 核心和线程数量对应的
+
+  [CPU 的线程与操作系统的线程有何关系？](https://www.zhihu.com/question/27406575)
+
+  大概两者都是调度的基本单位
 
 ## 2019-06-18
 
-- [ ] `AbstractQueuedSynchronizer` 重新再了解一遍
+- [x] `AbstractQueuedSynchronizer` 重新再了解一遍
+
+  [AQS 原理以及 AQS 同步组件总结](https://snailclimb.gitee.io/javaguide/#/./java/Multithread/AQS)
+
+  > AQS核心思想是，如果被请求的共享资源空闲，则将当前请求资源的线程设置为有效的工作线程，并且将共享资源设置为锁定状态。如果被请求的共享资源被占用，那么就需要一套线程阻塞等待以及被唤醒时锁分配的机制，这个机制AQS是用CLH队列锁实现的，即将暂时获取不到锁的线程加入到队列中。
+
 - [ ] JAVA 信息诊断
 
 ## 2019-06-19
 
-- [ ] [唯品会Java开发手册](https://github.com/DarLiner/vjtools)
-- [ ] [mysql 事务实践](听说Excel也是数据库/MySql事务实践.md)
-- [ ] fetch 搞定
+- [x] [唯品会Java开发手册](https://github.com/DarLiner/vjtools)
+- [x] [mysql 事务实践](听说Excel也是数据库/MySql事务实践.md)
+- [x] fetch 搞定

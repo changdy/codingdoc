@@ -150,6 +150,31 @@ searchParams: param=1&p2=4
 hash: #id
 ```
 
+### [URLSearchParams](https://developer.mozilla.org/zh-CN/docs/Web/API/URLSearchParams)
+
+```js
+var paramsString = "?q=URLUtils.searchParams&topic=api"
+var searchParams = new URLSearchParams(paramsString);
+
+for (let p of searchParams) {
+  console.log(p);
+}
+searchParams.has("topic") === true; // true
+searchParams.get("topic") === "api"; // true
+searchParams.getAll("topic"); // ["api"]
+searchParams.get("foo") === ""; // true
+searchParams.append("topic", "webdev");
+searchParams.toString(); // "q=URLUtils.searchParams&topic=api&topic=webdev"
+searchParams.set("topic", "More webdev");
+searchParams.toString(); // "q=URLUtils.searchParams&topic=More+webdev"
+searchParams.delete("topic");
+searchParams.toString(); // "q=URLUtils.searchParams"
+// 显示键/值对
+for(var pair of searchParams.entries()) {
+   console.log(pair[0]+ ', '+ pair[1]); 
+}
+```
+
 ## jQuery
 
 ### jQuery选择器
