@@ -194,4 +194,34 @@
 	}
 	```
 	
-	
+
+## JAVA版本特性
+
+### JAVA8
+
+- nashorn js引擎
+
+  ```java
+  ScriptEngine engine = new ScriptEngineManager().getEngineByName("nashorn");
+  engine.eval("print('Hello World!');");
+  ```
+
+- Base64
+
+  ```java
+  Base64.Encoder encoder = Base64.getEncoder();
+  String s = encoder.encodeToString("你好world".getBytes());
+  Base64.Decoder decoder = Base64.getDecoder();
+  String s2 = new String(decoder.decode(s));
+  ```
+
+- 时间 API ,Stream ,Optional, 接口的默认方法,多重注解 函数式接口 `javac -parameters` 编译的时候不丢失方法入参名, `HashMap` 链表升级到红黑树,`String.join()` 
+
+### JAVA7
+
+- Files Paths 新的文件和路径 读取文件更加方便
+- switch支持字符串(实际上仍然是 数字)
+- catch 多个异常
+- 泛型推断
+- try-with-resource
+- Objects 类, 方便对象的一些操作
