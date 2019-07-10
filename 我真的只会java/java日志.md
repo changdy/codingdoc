@@ -215,6 +215,12 @@
   String s2 = new String(decoder.decode(s));
   ```
 
+* Comparator 升级
+
+  ```java
+  Comparator.comparing(UserModel::getClassName).thenComparing(UserModel::getId).reversed()
+  ```
+
 - 时间 API ,Stream ,Optional, 接口的默认方法,多重注解 函数式接口 `javac -parameters` 编译的时候不丢失方法入参名, `HashMap` 链表升级到红黑树,`String.join()` 
 
 ### JAVA7

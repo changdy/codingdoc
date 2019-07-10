@@ -111,7 +111,21 @@ Java 8 API添加了一个新的抽象称为流Stream, 可以让你以一种声�
                     (ScoreInfo::getSubjectId, Collectors.averagingDouble(ScoreInfo::getScore)));
     ```
   
-    此外 `averagingDouble`可以换成`summarizingDouble` `summingInt`等等
+    此外 `averagingDouble`可以换成`summarizingDouble` `summingInt` `counting`等等
+    
+  * 分组累加
+  
+    ```java
+    list.stream()
+            .collect(Collectors.groupingBy
+                    (ScoreInfo::getSubjectId, mapping(ScoreInfo::getStudentName, toList())));
+    ```
+  
+  * 求最大值
+      ```java
+    list.stream().max(Comparator.comparing(ScoreInfo::getScore));
+    ```
+    
 
 ### java reduce和collect 方法对比
 

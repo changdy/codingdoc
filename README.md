@@ -100,3 +100,10 @@ todolist
 - [x] [唯品会Java开发手册](https://github.com/DarLiner/vjtools)
 - [x] [mysql 事务实践](听说Excel也是数据库/MySql事务实践.md)
 - [x] fetch 搞定
+
+## 2019-07-09
+
+- [ ] MySql Canal 消息队列统一方案
+- [ ] MySql 故障学习
+- [ ] Java8 学习
+- [ ] MySql 测试
