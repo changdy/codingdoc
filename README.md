@@ -107,3 +107,7 @@ todolist
 - [ ] MySql 故障学习
 - [ ] Java8 学习
 - [ ] MySql 测试
+
+## 2019-07-15
+
+- [ ] `MutationObserver` 了解学习
