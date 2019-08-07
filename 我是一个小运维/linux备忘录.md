@@ -3,6 +3,12 @@
   * 全功能型解压工具
   * `unar test.zip`
   * `yum install unar -y`
+* zcat
+  * 查看解压包里面的日志
+* [ripgrep(rg)](https://github.com/BurntSushi/ripgrep)
+  * 比grep,ag更快的查找命令
+* [icdiff](https://github.com/jeffkaufman/icdiff)
+  * 分屏diff
 * [htop](http://hisham.hm/htop/)
   * 代替top命令 , 方便查看系统状态
   * `yum install -y htop` (需要EPEL)
