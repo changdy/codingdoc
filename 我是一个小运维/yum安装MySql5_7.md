@@ -42,8 +42,12 @@
 * 针对个人数据库可以修改下安全校验
 
   ```sql
+  -- mysql5.7
   set global validate_password_policy=0;
   set global validate_password_length=1;
+  -- mysql 8.0+
+  set global validate_password.policy=0;
+  set global validate_password.length=1;
   ```
 
 * 修改密码
@@ -55,7 +59,7 @@
 * 设置远程登陆
 
   ```sql
-  update user set host ='%' where user ='root';
+  update mysql.user set host ='%' where user ='root';
   ```
 
 ## 设置成UTF8-MB4
