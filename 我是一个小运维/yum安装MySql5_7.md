@@ -80,3 +80,5 @@
 
 * [Mysql中的排序规则utf8_unicode_ci、utf8_general_ci的区别](https://www.cnblogs.com/zjfjava/p/7639535.html)
 * [CentOS7安装MySQL](https://www.cnblogs.com/bigbrotherer/p/7241845.html)
+* [Download MySQL Yum Repository](https://dev.mysql.com/downloads/repo/yum/)
+* [A Quick Guide to Using the MySQL Yum Repository](https://dev.mysql.com/doc/mysql-yum-repo-quick-guide/en/)
