@@ -1,7 +1,9 @@
 # java学习日志
 > 2017-03-06 09:29 
 
-* SimpleDateFormat参数 *(不推荐)*
+## 基础知识
+
+* SimpleDateFormat参数
 	* 实例化SimpleDateFormat的时候一定要注意 ,**区分大小写**
 	* y代表年 , 如yyyy
 	* M代表月 , 如MM
@@ -194,6 +196,22 @@
 	}
 	```
 	
+* 基本类型数组,与非基本类型数组差异
+
+  ```java
+  class Untitled {
+      public static void main(String[] args) {
+          Integer[] a1 = {1, 2, 3};
+          int[] a2 = {1, 2, 3};
+          getLength(a1);// 3
+          getLength(a2);// 1
+      }
+      // 还是有点不理解 不过要避免踩坑,比如Arrays.Stream ,等等 基本类型数组和封装类型数组表现会有差异
+      public static <T> void getLength(T... a) {
+          System.out.println(a.length);
+      }
+  }
+  ```
 
 ## JAVA版本特性
 
