@@ -212,6 +212,16 @@ list.stream().reduce(new ArrayList<>(), (acc, x) -> {
 
 并且同时注意到我虽然在上述代码中使用了并行处理 , 但并没有使用juc. 这是因为Stream使用了forkjoin的思路 , 所以当使用多线程的时候 , 并不会有线程安全的问题 . 但是会有排序的问题 , 有可能会返回不同的期望值 , 这点需要额外注意
 
+* 默认线程数量
+
+  默认线程数量应该和可使用的CPU数量相关
+
+* 手动设置线程数量
+
+  ```java
+  System.setProperty("java.util.concurrent.ForkJoinPool.common.parallelism","30");
+  ```
+
 ## Stream与BaseStream
 
 * `Arrays.stream` 有以下重载
