@@ -222,6 +222,50 @@ list.stream().reduce(new ArrayList<>(), (acc, x) -> {
   System.setProperty("java.util.concurrent.ForkJoinPool.common.parallelism","30");
   ```
 
+* [ForkJoinPool的commonPool相关参数配置](https://www.jianshu.com/p/1b5f4ea0074a)
+
+  ForkJoinPool 初始化连接池代码
+
+  ```java
+  private static ForkJoinPool makeCommonPool() {
+          int parallelism = -1;
+          ForkJoinWorkerThreadFactory factory = null;
+          UncaughtExceptionHandler handler = null;
+          try {  // ignore exceptions in accessing/parsing properties
+              String pp = System.getProperty
+                  ("java.util.concurrent.ForkJoinPool.common.parallelism");
+              String fp = System.getProperty
+                  ("java.util.concurrent.ForkJoinPool.common.threadFactory");
+              String hp = System.getProperty
+                  ("java.util.concurrent.ForkJoinPool.common.exceptionHandler");
+              if (pp != null)
+                  parallelism = Integer.parseInt(pp);
+              if (fp != null)
+                  factory = ((ForkJoinWorkerThreadFactory)ClassLoader.
+                             getSystemClassLoader().loadClass(fp).newInstance());
+              if (hp != null)
+                  handler = ((UncaughtExceptionHandler)ClassLoader.
+                             getSystemClassLoader().loadClass(hp).newInstance());
+          } catch (Exception ignore) {
+          }
+          if (factory == null) {
+              if (System.getSecurityManager() == null)
+                  factory = defaultForkJoinWorkerThreadFactory;
+              else // use security-managed default
+                  factory = new InnocuousForkJoinWorkerThreadFactory();
+          }
+          if (parallelism < 0 && // default 1 less than #cores
+              (parallelism = Runtime.getRuntime().availableProcessors() - 1) <= 0)
+              parallelism = 1;
+          if (parallelism > MAX_CAP)
+              parallelism = MAX_CAP;
+          return new ForkJoinPool(parallelism, factory, handler, LIFO_QUEUE,
+                                  "ForkJoinPool.commonPool-worker-");
+      }
+  ```
+
+  
+
 ## Stream与BaseStream
 
 * `Arrays.stream` 有以下重载
