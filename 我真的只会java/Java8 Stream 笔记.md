@@ -61,71 +61,71 @@ Java 8 API添加了一个新的抽象称为流Stream, 可以让你以一种声�
 
 ## 代码demo
 
-### 基础方法
+### 分组聚合操作
 
-* 字符串拼接
+基础pojo类
 
-    ```java
-    Stream.of("Across", "the", "Great", "Wall", "we", "can", "reach", "every", "corner", "in", "the", "world")
-            .collect(Collectors.joining("'", " ", "'"));
-    ```
-
-* 收集器相关
-
-  基础pojo类
-  
-  ```java
-  @Data
-  @NoArgsConstructor
-  @AllArgsConstructor
-  public class ScoreInfo {
-      private String subjectId;// 科目id
-      private String subjectName;//科目名称
-      private Double score;//得分
+```java
+@Data
+@NoArgsConstructor
+@AllArgsConstructor
+public class ScoreInfo {
+    private String subjectId;// 科目id
+    private String subjectName;//科目名称
+    private Double score;//得分
     private String studentName;//学生姓名
-  }
+}
+```
+
+基础list
+
+```java
+List<ScoreInfo> list = new ArrayList<>();
+```
+
+* 分组后自定义value
+
+  ```java
+  list.stream()
+          .collect(Collectors.groupingBy(
+                  ScoreInfo::getSubjectId, reducing(
+                          new BigDecimal(0),
+                          x -> new BigDecimal(x.getScore() > 10 ? 10 : 0),
+                          BigDecimal::add)));
   ```
+
+* 分组求值
+
+  ```java
+  list.stream()
+          .collect(Collectors.groupingBy
+                  (ScoreInfo::getSubjectId, Collectors.averagingDouble(ScoreInfo::getScore)));
+  ```
+
+  此外 `averagingDouble`可以换成`summarizingDouble` `summingInt` `counting`等等
   
-  基础list
+* 分组累加
+
+  ```java
+  list.stream()
+          .collect(Collectors.groupingBy
+                  (ScoreInfo::getSubjectId, mapping(ScoreInfo::getStudentName, toList())));
+  ```
+
+* 分组 value拼接
   
   ```java
-  List<ScoreInfo> list = new ArrayList<>();
+  list.stream()
+          .collect(Collectors.groupingBy
+                  (ScoreInfo::getSubjectId, mapping(ScoreInfo::getStudentName, Collectors.joining(", "))));
   ```
   
-  * 分组后自定义value
-  
-    ```java
-    list.stream()
-            .collect(Collectors.groupingBy(
-                    ScoreInfo::getSubjectId, reducing(
-                            new BigDecimal(0),
-                            x -> new BigDecimal(x.getScore() > 10 ? 10 : 0),
-                            BigDecimal::add)));
-    ```
-  
-  * 分组求值
-  
-    ```java
-    list.stream()
-            .collect(Collectors.groupingBy
-                    (ScoreInfo::getSubjectId, Collectors.averagingDouble(ScoreInfo::getScore)));
-    ```
-  
-    此外 `averagingDouble`可以换成`summarizingDouble` `summingInt` `counting`等等
-    
-  * 分组累加
-  
-    ```java
-    list.stream()
-            .collect(Collectors.groupingBy
-                    (ScoreInfo::getSubjectId, mapping(ScoreInfo::getStudentName, toList())));
-    ```
-  
-  * 求最大值
-      ```java
-    list.stream().max(Comparator.comparing(ScoreInfo::getScore));
-    ```
-    
+
+### 求最大值
+
+```java
+list.stream().max(Comparator.comparing(ScoreInfo::getScore));
+```
 
 ### java reduce和collect 方法对比
 
@@ -295,4 +295,8 @@ list.stream().reduce(new ArrayList<>(), (acc, x) -> {
   ```java
   Arrays.stream({'1', '2', '3'});// 报错
   ```
+
+## 参考
+
+* [Java8 Stream groupingBy对List进行分组](https://blog.csdn.net/weixin_41835612/article/details/83687088)
 
