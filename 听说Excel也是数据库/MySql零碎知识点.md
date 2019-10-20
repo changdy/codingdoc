@@ -93,3 +93,7 @@ INSERT INTO user ( data, date_time) VALUES ( '{"date": "123", "name": "555"}', '
 * 一般可以用来做数据库的同步,但是需要注意,binlog会自动切割,如果需要初始化数据, 应该使用mysqldump之类
 * bin_log 具有多种格式,一般会选择row,具有上下文信息
 * bin_log可以配合解析工具做同步 , 比如canal. 另外mysql主从服务器也是基于bin_log实现,master写入信息,slave拉取信息并relay-log 以达到同步
+
+## mysql未使用索引日志
+
+log_queries_not_using_indexes 开启之后可以记录那些查询没有使用到索引,可以提前找当将来的隐患
