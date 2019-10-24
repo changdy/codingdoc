@@ -2,7 +2,8 @@
 > 2017-03-06 09:29 
 
 ## 基础知识
-
+* BigDecimal
+  注意当创建浮点型时使用 BigDecimal.valueOf() 而不要使用构造器,否则会有精度问题
 * SimpleDateFormat参数
 	* 实例化SimpleDateFormat的时候一定要注意 ,**区分大小写**
 	* y代表年 , 如yyyy
