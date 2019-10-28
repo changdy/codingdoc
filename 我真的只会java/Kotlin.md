@@ -17,6 +17,8 @@
   }
   // nullAble为null或transformValue 结果为null都将返回 defaultValueIfValueIsNull
   nullAble?.let { transformValue(it) } ?: defaultValueIfValueIsNull
+  // 如果 `person` 或者 `person.department` 其中之一为空，都不会调用该函数：
+  person?.department?.head = managersPool.getManager()
   ```
 
 * 类型转换
@@ -380,6 +382,14 @@ kotlin中可以设置标签供break以及Continue
   }
   ```
 
+### 操作符重载
+
+```kotlin
+a > b	// 等效于 a.compareTo(b) > 0 
+a in b // b.contains(a)
+a(i, j)	// a.invoke(i, j)
+```
+
 ### 数组初始化
 
 ```kotlin
@@ -395,7 +405,20 @@ println(map.get("key"))
 val filteredMap = map.filter { (key, value) -> key.endsWith("1") && value > 10}
 ```
 
-## 心得
+### 作用域函数
+
+| Function | Object reference | Return value   | Is extension function                        |
+| :------- | :--------------- | :------------- | :------------------------------------------- |
+| `let`    | `it`             | Lambda result  | Yes                                          |
+| `run`    | `this`           | Lambda result  | Yes                                          |
+| `run`    | -                | Lambda result  | No: called without the context object        |
+| `with`   | `this`           | Lambda result  | No: takes the context object as an argument. |
+| `apply`  | `this`           | Context object | Yes                                          |
+| `also`   | `it`             | Context object | Yes                                          |
+
+## 心得  以及引用
 
 * java中默认方法以及属性类都可以被子类覆盖,但是kotlin中只有额外声明才能被子类修改
 * kotlin迭代器中 没有peek ,可以任何时候使用 `also` 或者 `forEach`
+* [[译]掌握Kotlin中的标准库函数: run、with、let、also和apply](https://zhuanlan.zhihu.com/p/37085876)
+
