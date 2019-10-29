@@ -37,13 +37,15 @@ todolist
   * [图解ARP协议（一）](https://zhuanlan.zhihu.com/p/28771785)
   * [如果世界上有两个相同的MAC地址会发生什么事？](https://www.zhihu.com/question/52820009)
 
-## 2019-06-02
+## 19-06
+
+### 2019-06-02
 
 - [ ] ~~前段时间学习的知识点整理~~
 - [ ] ~~很久之前的零碎知识点也做个统计~~
 - [x] N皇后问题
 
-## 2019-06-08
+### 2019-06-08
 
 - [x] mysql 资料以及索引优化整理
 
@@ -51,7 +53,7 @@ todolist
 
   其实网络最重要的就是分层 , 然后拆包,封包
 
-## 2019-06-13
+### 2019-06-13
 
 - [x] js的 `JSON.parse`方法如何防止精度丢失
 
@@ -75,8 +77,7 @@ todolist
 
 - [x] [从输入URL到页面加载的过程](写写前端最炫酷了/从输入URL到页面加载的过程.md)
 
-
-## 2019-06-15
+### 2019-06-15
 
 - [x] [bower](https://bower.io/) 了解
 
@@ -84,7 +85,7 @@ todolist
 
   >  We don't recommend using Bower for new projects. Please consider Yarn and Webpack or Parcel.
 
-## 2019-06-16
+### 2019-06-16
 
 - [x] 多进程 多线程 是如何与cpu的 核心和线程数量对应的
 
@@ -92,7 +93,7 @@ todolist
 
   大概两者都是调度的基本单位
 
-## 2019-06-18
+### 2019-06-18
 
 - [x] `AbstractQueuedSynchronizer` 重新再了解一遍
 
@@ -102,30 +103,42 @@ todolist
 
 - [x] JAVA 信息诊断
 
-## 2019-06-19
+### 2019-06-19
 
 - [x] [唯品会Java开发手册](https://github.com/DarLiner/vjtools)
 - [x] [mysql 事务实践](听说Excel也是数据库/MySql事务实践.md)
 - [x] fetch 搞定
 
-## 2019-07-09
+## 19-07
+
+### 2019-07-09
 
 - [x] MySql Canal 消息队列统一方案
 - [x] MySql 故障学习
 - [x] Java8 学习
 - [x] MySql 测试
 
-## 2019-07-15
+### 2019-07-15
 
 - [x] `MutationObserver` 了解学习
 
-## 2019-08-17
+## 19-08
+
+### 2019-08-17
 
 - [x] MySql虚拟列
 
-## 2019-10-28
+## 19-10
 
-- [ ] ThreadLocal 写一篇解析
+### 2019-10-28
+
+- [x] [ThreadLocal 写一篇解析](我真的只会java/ThreadLocal浅析.md)
 - [ ] 水桶问题分析一下
 - [ ] geo问题 了解一下
 - [ ] 一些编程的感悟 也写一下
+
+### 2019-10-29
+
+- [ ] Mysql 优化调优心得
+- [ ] 
+
