@@ -4,6 +4,7 @@
 ## 基础知识
 * BigDecimal
   注意当创建浮点型时使用 BigDecimal.valueOf() 而不要使用构造器,否则会有精度问题
+  
 * SimpleDateFormat参数
 	* 实例化SimpleDateFormat的时候一定要注意 ,**区分大小写**
 	* y代表年 , 如yyyy
@@ -197,6 +198,13 @@
 	}
 	```
 	
+* 重定向日志输出流
+
+  ```java
+  System.setOut(new PrintStream(new File("D:/outLog.txt")));
+  System.out.println("周杰伦");// sout并不会打印在控制台,而是会输出到文件中
+  ```
+  
 * 基本类型数组,与非基本类型数组差异
 
   ```java
