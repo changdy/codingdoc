@@ -258,3 +258,42 @@
 - 泛型推断
 - try-with-resource
 - Objects 类, 方便对象的一些操作
+
+## 第三方项目知识点
+
+### MyBatis
+
+* 缓存的坑
+
+  Spring boot 项目中 默认会有本地缓存 , 比较容易出现赃读 记得在项目中关闭
+
+  ```yaml
+  mybatis:
+    configuration:
+      cache-enabled: false # 默认是true
+      local-cache-scope: statement # 默认是session
+  ```
+
+* 单字符串入参的坑
+
+  MyBatis在入参为单个字符串时 可能会报错,如下:
+
+  ```java
+  @Select("select id from cs_ticket where customer_id in ('${ids}')")
+  List<Integer> getCustomerList(String ids);
+  ```
+
+  可能会提示` There is no getter for property named 'XXX' in 'class java.lang.String' `
+
+  比较好的解决方案有两个:
+
+  * 升级MyBatis版本 上述bug在 `2.0.1`复现成功,而在`2.1.0`已经修复
+
+  * 修改SQL语句
+
+    ```sql
+    @Select("select id from cs_ticket where customer_id in ('${_parameter}')")
+    List<Integer> getCustomerList(String ids);
+    ```
+
+  当然入参上面也可以加`@Param`注解 这里不再说明了
