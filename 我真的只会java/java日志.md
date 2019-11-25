@@ -297,3 +297,16 @@
     ```
 
   当然入参上面也可以加`@Param`注解 这里不再说明了
+
+###  common 
+
+*  common-lang  转义
+
+  ```java
+  String str = "{\\\"name\\\":\\\"spy\\\",\\\"id\\\":\\\"123456\\\"}";
+  System.out.println("原始 str = " + str);
+  String str1 = StringEscapeUtils.unescapeJava(str);
+  System.out.println("目标 str1 = " + str1);
+  ```
+
+  
