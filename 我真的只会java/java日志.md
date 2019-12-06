@@ -222,6 +222,18 @@
   }
   ```
 
+* 三目运算的坑
+
+  项目中有一段代码突然爆了空指针 ,片段如下
+
+  ```java
+  Map<String, Boolean> map = new HashMap<>();
+  Boolean b = map == null ? false : map.get("test");
+  ```
+
+  当时百思不得其解 , 尝试换成Optional能够正常取值 , 但是使用三目运算就是报错 , 后来灵机一动 感觉有可能是拆箱/封装类的原因, 固定返回值改成封装类型之后果然解决 ,同时在网上搜索 发现相关信息
+
+  [JAVA 三目运算时遇到的坑](https://segmentfault.com/a/1190000014827888) , 真的有点坑 .还是 Kotlin大法好..
 ## JAVA版本特性
 
 ### JAVA8
