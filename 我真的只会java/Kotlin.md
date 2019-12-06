@@ -20,6 +20,7 @@
   // 如果 `person` 或者 `person.department` 其中之一为空，都不会调用该函数：
   person?.department?.head = managersPool.getManager()
   // 同时需要注意运算优先级
+  i = str?.length?:0 + i // 其实等价于 str?.length?: (0 + i)
   ```
 
 * 类型转换
