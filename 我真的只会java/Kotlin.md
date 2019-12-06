@@ -2,7 +2,7 @@
 
 ## 属性
 
-* 空对象转非空
+* 空对象转非空 采用了`Elvis `风格 
 
   ```kotlin
   // 强转
@@ -19,6 +19,7 @@
   nullAble?.let { transformValue(it) } ?: defaultValueIfValueIsNull
   // 如果 `person` 或者 `person.department` 其中之一为空，都不会调用该函数：
   person?.department?.head = managersPool.getManager()
+  // 同时需要注意运算优先级
   ```
 
 * 类型转换
@@ -79,13 +80,20 @@
   }
   ```
 
+* 避免关键字
+
+  ```kotlin
+  // Utils.is() // 编译不通过, 因为is 是kotlin的关键字
+  Utils.`is`()
+  ```
+
   
 
 ## kotlin类
 
 ### 嵌套类
 
-​	嵌套类 就是在一个类里面声明了另外一个类
+嵌套类 就是在一个类里面声明了另外一个类
 
 ### 内部类
 
@@ -120,6 +128,10 @@ class Constructors {
 }
 // 先打印 `Init block` 因为 `init` 其实算默认构造方法的一部分
 ```
+
+### Kotlin Class类文件
+
+
 
 ## List
 
@@ -265,6 +277,16 @@ val kotlinComparator = Comparator { i: TempData, j: TempData -> i.score.compareT
 ### reduce 与fold 差异
 
 reduce 限定了返回值必须是集合泛型本身,并且初始值为第一个元素. 而fold 并不限定返回类型,第一个值可以需要手动指定
+
+## 数组
+
+Kotlin 中的数组是一个拥有泛型的类，创建函数也是泛型函数，和集合数据类型一样 写法如下：
+
+```kotlin
+🏝️
+val strs: Array<String> = arrayOf("a", "b", "c")
+            👆              👆
+```
 
 ## 方法
 
@@ -416,9 +438,20 @@ val filteredMap = map.filter { (key, value) -> key.endsWith("1") && value > 10}
 | `apply`  | `this`           | Context object | Yes                                          |
 | `also`   | `it`             | Context object | Yes                                          |
 
+### 额外注解
+
+* JvmOverloads
+
+  Kotlin提供了 @JvmOverloads注解，使用这个注解后，会让Kotlin编译器按照从左向右的顺序依次为每一个可选参数生成重载 , 可以在java代码中也方便使用
+
 ## 心得  以及引用
 
 * java中默认方法以及属性类都可以被子类覆盖,但是kotlin中只有额外声明才能被子类修改
 * kotlin迭代器中 没有peek ,可以任何时候使用 `also` 或者 `forEach`
 * [[译]掌握Kotlin中的标准库函数: run、with、let、also和apply](https://zhuanlan.zhihu.com/p/37085876)
-
+* [如何在 Java 和 Kotlin 之间进行互操作](https://juejin.im/post/5de6474a518825122b0f652b)
+* [正确使用Kotlin注解，兼容Java代码](https://juejin.im/post/5dcc246f6fb9a02b112aeb5f#heading-2)
+* [理解Kotlin语言独有的位置注解，让注解控制更精准](https://juejin.im/post/5dce9cb55188251845221090)
+* [【码上开学】Kotlin 里那些「不是那么写的」](https://juejin.im/post/5d5c80555188256522360a3d)
+* [【码上开学】Kotlin 里那些「更方便的」](https://juejin.im/post/5d5fccb8f265da03925a4f90)
+* [kotlin 中::class 、class.java、javaClass、javaClass.kotlin区别](https://blog.csdn.net/a568478312/article/details/80718028)
