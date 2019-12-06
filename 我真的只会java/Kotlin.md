@@ -132,7 +132,19 @@ class Constructors {
 
 ### Kotlin Class类文件
 
-
+```kotlin
+class Person {companion object {}}
+fun main(args: Array<String>) {
+    // kotlin 的class
+    val kClass: KClass<Person> = Person::class
+    // 实例的类相似,只不过加了 out, 下同 不在累述
+    val instanceKClass: KClass<out Person> = Person()::class
+    // java 的 class
+    val javaClass: Class<Person> = Person::class.java
+    // 这边其实是伴生类的
+    val companionClass=Person.javaClass
+}
+```
 
 ## List
 
