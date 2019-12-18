@@ -4,8 +4,10 @@
   * `unar test.zip`
   * `yum install unar -y`
 * zcat
+  
   * 查看解压包里面的日志
 * [icdiff](https://github.com/jeffkaufman/icdiff)
+  
   * 分屏diff
 * [htop](http://hisham.hm/htop/)
   * 代替top命令 , 方便查看系统状态
@@ -123,3 +125,7 @@
 
 * `systemctl stop firewalld.service `
 * `systemctl disable firewalld.service `
+
+## linux 正则
+
+正则其实有不同的标准 , 不同标准实现上略有差异 , 比如 默认情况下 grep 并不支持 \D 和\d , 需要加额外的参数.具体可见 [grep中使用"\d"匹配数字不成功的原因](https://blog.csdn.net/yufenghyc/article/details/51078107) , `grep -P "\D2939304\D"` 需要加 -P参数
