@@ -153,7 +153,7 @@ hash: #id
 ### [URLSearchParams](https://developer.mozilla.org/zh-CN/docs/Web/API/URLSearchParams)
 
 ```js
-var paramsString = "?q=URLUtils.searchParams&topic=api"
+var paramsString = "?q=URLUtils.searchParams&topic=api"// window.location.search
 var searchParams = new URLSearchParams(paramsString);
 
 for (let p of searchParams) {

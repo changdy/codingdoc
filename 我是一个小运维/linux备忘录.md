@@ -59,10 +59,24 @@
   * 端口扫描工具
 ## 部分命令
 * ps -ef|grep java|grep -v grep|awk '{print $2}'|xargs kill -9
+
 * find / -type f -size +200M
+
 * cat /dev/null > saa_wx.log
+
 * nohup xxx  >/dev/null 2>&1  &
+
 * `ctrl a` 终端开始 ,`ctrl e`
+
+* 获取内网ip
+
+  ```sh
+  machine_physics_net=$(ls /sys/class/net/ | grep -v "`ls /sys/devices/virtual/net/`");
+  local_ip=$(ip addr | grep $machine_physics_net | awk '/^[0-9]+: / {}; /inet.*global/ {print gensub(/(.*)\/(.*)/, "\\1", "g", $2)}' | head -1);
+  echo $local_ip
+  ```
+
+  
 
 ## todo
 
